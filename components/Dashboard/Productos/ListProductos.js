@@ -136,7 +136,8 @@ export default function ListProductos({ shop_id }) {
     }, [modal])
 
 
-    return (<>
+    return (
+    <div className="flex flex-col">
 
 
 
@@ -206,7 +207,7 @@ export default function ListProductos({ shop_id }) {
             </tbody>
         </table>
 
-        <div className="pagination grid grid-cols-3 px-2 mt-auto">
+        <div className="flex-1 pagination grid grid-cols-3 px-2">
             <div className="justify-self-start">
                 <span>
                     Ir a la pag.:{' '}
@@ -349,5 +350,5 @@ export default function ListProductos({ shop_id }) {
 
 
 
-    </>)
+    </div>)
 }
