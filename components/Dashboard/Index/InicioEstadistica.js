@@ -44,7 +44,8 @@ export default function InicioEstadistica() {
     let products = [];
 
     let stock = [];
-
+    let start = new Date();
+    let end = new Date();
 
 
     start.setDate(start.getDate() - 7);
