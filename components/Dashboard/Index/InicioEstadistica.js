@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Bar, Pie, Doughnut } from "react-chartjs-2"
 import useSWR from "swr"
 import FetcherGet from "../../../lib/FetcherGet"
