@@ -34,7 +34,7 @@ function LoginForm() {
 
         setForm({ state: 'loading' });
 
-        const res = await fetch('https://abakodev.herokuapp.com/api/session', {
+        const res = await fetch('https://api.abako.xyz/api/session', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(state),
@@ -43,7 +43,7 @@ function LoginForm() {
 
         const resJson = await res.json() // capturo los datos que se envia desde el API en formato Json
 
-        console.log(resJson)
+        console.log({resJson})
 
         if (resJson.error == false) {
             const accessToken = await resJson.data.accessToken; // capturo el token que se envia desde el API
