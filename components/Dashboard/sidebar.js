@@ -20,7 +20,7 @@ export default function sidebar({ children, active, color }) {
     const [activeOption, setActiveOption] = useState(active);
 
     const { data, error, mutate } = useSWR(`https://api.abako.xyz/api/user`, url => FetcherGet(url));
-api.abako.xyz
+
     if (error) return 'Ocurrio un error:'
     if (!data) return 'Loading'
 
