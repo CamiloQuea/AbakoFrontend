@@ -10,11 +10,12 @@ export default function InicioEstadistica() {
 
     const getData = async () => {
         const response = await fetch(!shop_id ? `https://abakoapi.herokuapp.com/api/user/movement` : `https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/movement`, {
-            headers: { accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
             credentials: 'include'
         }
         );
         const data = await response.json();
+
+        console.log(data);
         setTodos(data.data);
     };
 
@@ -42,7 +43,7 @@ export default function InicioEstadistica() {
 
     let stock = [];
 
-    console.log(todos);
+    
 
 
 
