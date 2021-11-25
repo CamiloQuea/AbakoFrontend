@@ -36,7 +36,7 @@ export default function InicioEstadistica() {
 
     useEffect(() => {
         getData();
-    }, [modal])
+    }, [])
 
     let products = [];
 
