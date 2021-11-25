@@ -12,18 +12,15 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var swr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(549);
-/* harmony import */ var swr__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(swr__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9915);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Tiendas_newProducto__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(564);
-/* harmony import */ var react_table__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2154);
-/* harmony import */ var react_table__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_table__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _lib_GlobalFilter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7772);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Tiendas_newProducto__WEBPACK_IMPORTED_MODULE_4__, js_cookie__WEBPACK_IMPORTED_MODULE_2__]);
-([_Tiendas_newProducto__WEBPACK_IMPORTED_MODULE_4__, js_cookie__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__);
-
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9915);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Tiendas_newProducto__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(564);
+/* harmony import */ var react_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2154);
+/* harmony import */ var react_table__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_table__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _lib_GlobalFilter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7772);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Tiendas_newProducto__WEBPACK_IMPORTED_MODULE_3__, js_cookie__WEBPACK_IMPORTED_MODULE_1__]);
+([_Tiendas_newProducto__WEBPACK_IMPORTED_MODULE_3__, js_cookie__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__);
 
 
 
@@ -31,13 +28,13 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Tie
 
 
 function ListProductos({ shop_id  }) {
-    const { 0: modal , 1: setModal  } = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)("");
-    const { 0: todos , 1: setTodos  } = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
+    const { 0: modal , 1: setModal  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("");
+    const { 0: todos , 1: setTodos  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
     const getData = async ()=>{
         const response = await fetch(!shop_id ? `https://api.abako.xyz/api/user/product` : `https://api.abako.xyz/api/user/shop/${shop_id}/product`, {
             headers: {
-                accessToken: js_cookie__WEBPACK_IMPORTED_MODULE_2__["default"].get('accessToken'),
-                refreshToken: js_cookie__WEBPACK_IMPORTED_MODULE_2__["default"].get('refreshToken')
+                accessToken: js_cookie__WEBPACK_IMPORTED_MODULE_1__["default"].get('accessToken'),
+                refreshToken: js_cookie__WEBPACK_IMPORTED_MODULE_1__["default"].get('refreshToken')
             },
             credentials: 'include'
         });
@@ -50,10 +47,10 @@ function ListProductos({ shop_id  }) {
     const handleModal = ()=>{
         setModal("");
     };
-    const columns = (0,react__WEBPACK_IMPORTED_MODULE_3__.useMemo)(()=>[]
+    const columns = (0,react__WEBPACK_IMPORTED_MODULE_2__.useMemo)(()=>[]
     , []);
     if (shop_id) {
-        columns = (0,react__WEBPACK_IMPORTED_MODULE_3__.useMemo)(()=>[
+        columns = (0,react__WEBPACK_IMPORTED_MODULE_2__.useMemo)(()=>[
                 {
                     Header: 'Tipo',
                     accessor: 'type'
@@ -81,7 +78,7 @@ function ListProductos({ shop_id  }) {
             ]
         , []);
     } else {
-        columns = (0,react__WEBPACK_IMPORTED_MODULE_3__.useMemo)(()=>[
+        columns = (0,react__WEBPACK_IMPORTED_MODULE_2__.useMemo)(()=>[
                 {
                     Header: 'Tipo',
                     accessor: 'type'
@@ -113,21 +110,21 @@ function ListProductos({ shop_id  }) {
             ]
         , []);
     }
-    const productsData = (0,react__WEBPACK_IMPORTED_MODULE_3__.useMemo)(()=>[
+    const productsData = (0,react__WEBPACK_IMPORTED_MODULE_2__.useMemo)(()=>[
             ...todos
         ]
     , [
         todos
     ]);
-    const intance = (0,react_table__WEBPACK_IMPORTED_MODULE_5__.useTable)({
+    const intance = (0,react_table__WEBPACK_IMPORTED_MODULE_4__.useTable)({
         columns,
         data: productsData,
         initialState: {
             pageIndex: 0
         }
-    }, react_table__WEBPACK_IMPORTED_MODULE_5__.useGlobalFilter, react_table__WEBPACK_IMPORTED_MODULE_5__.useSortBy, react_table__WEBPACK_IMPORTED_MODULE_5__.usePagination);
+    }, react_table__WEBPACK_IMPORTED_MODULE_4__.useGlobalFilter, react_table__WEBPACK_IMPORTED_MODULE_4__.useSortBy, react_table__WEBPACK_IMPORTED_MODULE_4__.usePagination);
     const { getTableProps , getTableBodyProps , headerGroups , rows , prepareRow , preGlobalFilteredRows , setGlobalFilter , state , page: page1 , canPreviousPage , canNextPage , pageOptions , pageCount , gotoPage , nextPage , previousPage , setPageSize , state: { pageIndex , pageSize: pageSize1  } ,  } = intance;
-    (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(()=>{
+    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(()=>{
         getData();
     }, [
         modal
@@ -150,7 +147,7 @@ function ListProductos({ shop_id  }) {
                             className: "p-4 justify-self-end",
                             children: [
                                 " ",
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_GlobalFilter__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_GlobalFilter__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                                     preGlobalFilteredRows: preGlobalFilteredRows,
                                     setGlobalFilter: setGlobalFilter,
                                     globalFilter: state.globalFilter
@@ -166,7 +163,7 @@ function ListProductos({ shop_id  }) {
                             className: "p-4 justify-self-start",
                             children: [
                                 " ",
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_GlobalFilter__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_GlobalFilter__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                                     preGlobalFilteredRows: preGlobalFilteredRows,
                                     setGlobalFilter: setGlobalFilter,
                                     globalFilter: state.globalFilter
@@ -176,7 +173,7 @@ function ListProductos({ shop_id  }) {
                     ]
                 }),
                 modal == "" ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-                }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Tiendas_newProducto__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
+                }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Tiendas_newProducto__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
                     shop_id: shop_id,
                     handleModal: handleModal
                 }),
@@ -203,7 +200,7 @@ function ListProductos({ shop_id  }) {
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("tbody", {
                             ...getTableBodyProps(),
-                            children: page1.map((row, i)=>{
+                            children: page1.length > 0 && !loading ? page1.map((row, i)=>{
                                 prepareRow(row);
                                 return(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("tr", {
                                     ...row.getRowProps(),
@@ -215,6 +212,8 @@ function ListProductos({ shop_id  }) {
                                         }));
                                     })
                                 }));
+                            }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                children: "loading..."
                             })
                         })
                     ]

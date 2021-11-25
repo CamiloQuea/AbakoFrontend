@@ -157,7 +157,6 @@ function inicio() {
     if (!data) return 'Loading';
     if (data.rol === 'admin' && !data.business) next_router__WEBPACK_IMPORTED_MODULE_6___default().push('/dashboard/configuracion');
     if (data.rol == 'employee') next_router__WEBPACK_IMPORTED_MODULE_6___default().push('dashboard/productos');
-    console.log(data.rol);
     return(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Dashboard_sidebar__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
         active: "Inicio",
         color: "red",

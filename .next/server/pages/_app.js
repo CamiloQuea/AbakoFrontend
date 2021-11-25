@@ -21,8 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App({ Component , pageProps  }) {
-    return(//<ThemeProvider attribute="class">
-    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
+    return(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
         ...pageProps
     }));
 };

@@ -90,13 +90,23 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_lib
 function sidebar({ children , active , color  }) {
     const { 0: mounted , 1: setMounted  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
     const { resolvedTheme , setTheme  } = (0,next_themes__WEBPACK_IMPORTED_MODULE_6__.useTheme)();
+    const { 0: data1 , 1: setTodos  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
     (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(()=>setMounted(true)
     , []);
     const { 0: activeOption , 1: setActiveOption  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(active);
-    const { data , error , mutate  } = swr__WEBPACK_IMPORTED_MODULE_10___default()(`https://api.abako.xyz/api/user`, (url)=>(0,_lib_FetcherGet__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .Z)(url)
-    );
-    if (error) return 'Ocurrio un error:';
-    if (!data) return 'Loading';
+    // const { data, error, mutate } = useSWR(`https://api.abako.xyz/api/user`, url => FetcherGet(url));
+    // if (error) return 'Ocurrio un error:'
+    // if (!data) return 'Loading'
+    const getData = async ()=>{
+        const response = await fetch(`https://api.abako.xyz/api/user`, {
+            credentials: 'include'
+        });
+        const data = await response.json();
+        setTodos(data.data);
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(()=>{
+        getData();
+    }, []);
     //TooltipFunction();
     return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
@@ -126,66 +136,52 @@ function sidebar({ children , active , color  }) {
                                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
                                     className: "my-14 flex flex-row md:flex-col w-screen",
                                     children: [
-                                        data.rol === 'employee' ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+                                        data1.rol === 'employee' ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
                                         }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                             className: `menu-opciones efectohover hover:border-red-700  ${activeOption == 'Inicio' ? 'border-2 border-red-700 rounded-lg md:transform-none transform -translate-y-0.5' : 'border-transparent border-2'}`,
                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_5__["default"], {
                                                 href: "/dashboard",
                                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                                                    className: "p-1",
                                                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_icons_OptionsIcons__WEBPACK_IMPORTED_MODULE_4__/* .IconInicio */ .XE, {
                                                     })
                                                 })
                                             })
                                         }),
-                                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                             className: `menu-opciones efectohover hover:border-yellow-400 ${activeOption == 'Productos' ? 'border-2 border-yellow-400 rounded-lg md:transform-none transform -translate-y-0.5' : 'border-transparent border-2'}`,
-                                            children: [
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                                                    href: "/dashboard/productos",
-                                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_icons_OptionsIcons__WEBPACK_IMPORTED_MODULE_4__/* .IconProductos */ .LW, {
-                                                        })
+                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                                                href: "/dashboard/productos",
+                                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                                                    className: "p-1",
+                                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_icons_OptionsIcons__WEBPACK_IMPORTED_MODULE_4__/* .IconProductos */ .LW, {
                                                     })
-                                                }),
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                    className: "ml-10 bg-gray-900 text-gray-100 px-2 py-1.5 md:absolute md:block rounded-lg shadow-xl tooltip hidden",
-                                                    children: "Productos"
                                                 })
-                                            ]
+                                            })
                                         }),
-                                        data.rol === 'employee' ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-                                        }) : /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+                                        data1.rol === 'employee' ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+                                        }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                             className: `menu-opciones efectohover hover:border-green-700 ${activeOption == 'Tiendas' ? 'border-2 border-green-800 rounded-lg md:transform-none transform -translate-y-0.5' : 'border-transparent border-2'}`,
-                                            children: [
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                                                    href: "/dashboard/tiendas",
-                                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_icons_OptionsIcons__WEBPACK_IMPORTED_MODULE_4__/* .IconTiendas */ .vz, {
-                                                        })
+                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                                                href: "/dashboard/tiendas",
+                                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                                                    className: "p-1",
+                                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_icons_OptionsIcons__WEBPACK_IMPORTED_MODULE_4__/* .IconTiendas */ .vz, {
                                                     })
-                                                }),
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                    className: "ml-10 bg-gray-900 text-gray-100 px-2 py-1.5 md:absolute md:block rounded-lg shadow-xl tooltip hidden",
-                                                    children: "Tiendas"
                                                 })
-                                            ]
+                                            })
                                         }),
-                                        data.rol === 'employee' ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-                                        }) : /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+                                        data1.rol === 'employee' ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+                                        }) : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                             className: `menu-opciones efectohover hover:border-blue-700 ${activeOption == 'Config' ? 'border-2 border-blue-700 rounded-lg md:transform-none transform -translate-y-0.5' : 'border-transparent border-2'}`,
-                                            children: [
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                                                    href: "/dashboard/configuracion",
-                                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_icons_OptionsIcons__WEBPACK_IMPORTED_MODULE_4__/* .IconConfiguracion */ .YC, {
-                                                        })
+                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                                                href: "/dashboard/configuracion",
+                                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                                                    className: "p-1",
+                                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_lib_icons_OptionsIcons__WEBPACK_IMPORTED_MODULE_4__/* .IconConfiguracion */ .YC, {
                                                     })
-                                                }),
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                    className: "ml-10 bg-gray-900 text-gray-100 px-2 py-1.5 md:absolute md:block rounded-lg shadow-xl tooltip hidden",
-                                                    children: "Configuracion"
                                                 })
-                                            ]
+                                            })
                                         })
                                     ]
                                 })
@@ -211,7 +207,7 @@ function sidebar({ children , active , color  }) {
                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_navbar__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
                                     colors: color,
                                     name: active,
-                                    user: data.username
+                                    user: data1.username
                                 })
                             }),
                             children
@@ -241,7 +237,6 @@ js_cookie__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? 
 
 async function FetcherGet(url) {
     return fetch(url, {
-        // headers: { accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken')},
         credentials: 'include'
     }).then((res)=>res.json()
     ).then((json)=>json.data
@@ -313,27 +308,21 @@ function Light() {
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
 function IconInicio() {
-    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
-                xmlns: "http://www.w3.org/2000/svg",
-                width: 24,
-                height: 24,
-                fill: "none",
-                viewBox: "0 0 24 24",
-                stroke: "currentColor",
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
-                    strokeLinecap: "round",
-                    strokeLinejoin: "round",
-                    strokeWidth: 2,
-                    d: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                })
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: "ml-10 bg-gray-900 text-gray-100 px-2 py-1.5 md:absolute md:block rounded-lg shadow-xl tooltip hidden",
-                children: "Inicio"
+    return(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+            xmlns: "http://www.w3.org/2000/svg",
+            width: 24,
+            height: 24,
+            fill: "none",
+            viewBox: "0 0 24 24",
+            stroke: "currentColor",
+            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: 2,
+                d: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
             })
-        ]
+        })
     }));
 }
 function IconProductos() {
@@ -431,9 +420,13 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([js_cookie__WEBPACK_IMPORTED_MODULE_0__]);
 js_cookie__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__)[0];
 
-function removeCookie() {
+async function removeCookie() {
     js_cookie__WEBPACK_IMPORTED_MODULE_0__["default"].remove('accessToken');
     js_cookie__WEBPACK_IMPORTED_MODULE_0__["default"].remove('refreshToken');
+    await fetch('https://api.abako.xyz/api/session', {
+        method: 'PATCH',
+        credentials: 'include'
+    });
 };
 
 });

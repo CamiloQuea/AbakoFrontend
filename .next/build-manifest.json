@@ -5,9 +5,9 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/w08KTYYK8bFFj973fA9Rx/_buildManifest.js",
-    "static/w08KTYYK8bFFj973fA9Rx/_ssgManifest.js",
-    "static/w08KTYYK8bFFj973fA9Rx/_middlewareManifest.js"
+    "static/AaxCbmTimZsYs0xHute_J/_buildManifest.js",
+    "static/AaxCbmTimZsYs0xHute_J/_ssgManifest.js",
+    "static/AaxCbmTimZsYs0xHute_J/_middlewareManifest.js"
   ],
   "pages": {
     "/": [
@@ -23,7 +23,7 @@
       "static/chunks/webpack-b927671265afed5e.js",
       "static/chunks/framework-0f8b31729833af61.js",
       "static/chunks/main-a5f2beb8b3d215d7.js",
-      "static/css/9dea47de58fc0d68.css",
+      "static/css/ba3973e6b6c65d60.css",
       "static/chunks/pages/_app-a75824bd2bb982f1.js"
     ],
     "/_error": [
@@ -41,14 +41,14 @@
       "static/chunks/521-cc6c56de41d0b0e8.js",
       "static/chunks/81-edc81ffdd13571be.js",
       "static/chunks/29-c3db3dfe584d5d4d.js",
-      "static/chunks/pages/dashboard-1509ab24232e17e9.js"
+      "static/chunks/pages/dashboard-4e7b31b38bf512ec.js"
     ],
     "/dashboard/configuracion": [
       "static/chunks/webpack-b927671265afed5e.js",
       "static/chunks/framework-0f8b31729833af61.js",
       "static/chunks/main-a5f2beb8b3d215d7.js",
       "static/chunks/535-40b8d9e0a3c7ccd1.js",
-      "static/chunks/pages/dashboard/configuracion-71152dca002990b7.js"
+      "static/chunks/pages/dashboard/configuracion-be5fd92059edcf53.js"
     ],
     "/dashboard/productos": [
       "static/chunks/webpack-b927671265afed5e.js",
@@ -56,7 +56,7 @@
       "static/chunks/main-a5f2beb8b3d215d7.js",
       "static/chunks/535-40b8d9e0a3c7ccd1.js",
       "static/chunks/521-cc6c56de41d0b0e8.js",
-      "static/chunks/150-0a912ba0f2c1ff37.js",
+      "static/chunks/150-80b38a0051171a5c.js",
       "static/chunks/pages/dashboard/productos-ff7a67ad116fb800.js"
     ],
     "/dashboard/tiendas": [
@@ -65,7 +65,7 @@
       "static/chunks/main-a5f2beb8b3d215d7.js",
       "static/chunks/535-40b8d9e0a3c7ccd1.js",
       "static/chunks/521-cc6c56de41d0b0e8.js",
-      "static/chunks/150-0a912ba0f2c1ff37.js",
+      "static/chunks/150-80b38a0051171a5c.js",
       "static/chunks/506-63f6b7bdae490ff8.js",
       "static/chunks/pages/dashboard/tiendas-c05a15ae8bd96d5e.js"
     ],
@@ -75,7 +75,7 @@
       "static/chunks/main-a5f2beb8b3d215d7.js",
       "static/chunks/535-40b8d9e0a3c7ccd1.js",
       "static/chunks/521-cc6c56de41d0b0e8.js",
-      "static/chunks/150-0a912ba0f2c1ff37.js",
+      "static/chunks/150-80b38a0051171a5c.js",
       "static/chunks/29-c3db3dfe584d5d4d.js",
       "static/chunks/506-63f6b7bdae490ff8.js",
       "static/chunks/pages/dashboard/tiendas/[id]-e297a35936463bbb.js"

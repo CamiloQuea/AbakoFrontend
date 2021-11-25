@@ -609,10 +609,6 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_com
 function configuracion() {
     const fetcher = (url)=>{
         return fetch(url, {
-            headers: {
-                accessToken: js_cookie__WEBPACK_IMPORTED_MODULE_5__["default"].get('accessToken'),
-                refreshToken: js_cookie__WEBPACK_IMPORTED_MODULE_5__["default"].get('refreshToken')
-            },
             credentials: 'include'
         }).then((res)=>res.json()
         ).then((json)=>json.data

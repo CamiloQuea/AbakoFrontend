@@ -178,7 +178,7 @@ export default function ListProductos({ shop_id }) {
                 </thead>
                 <tbody {...getTableBodyProps()}>
                     {
-                        page.length > 0 && !loading ? (
+                        page.length > 0 ? (
                             page.map((row, i) => {
                                 prepareRow(row)
                                 return (
