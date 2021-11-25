@@ -48,7 +48,7 @@ html{
 /*asdasdsa*/
 
 .menu-opciones{
-    @apply md:mx-10 md:mb-10 break-normal inline-flex cursor-pointer p-1 mx-5 flex-1 justify-center md:justify-between
+    @apply md:mx-10 md:mb-10 break-normal inline-flex cursor-pointer mx-5 flex-1 justify-center md:justify-between
 }
 
 .efectohover{

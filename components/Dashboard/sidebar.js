@@ -65,7 +65,7 @@ export default function sidebar({ children, active, color }) {
                     <ul className="my-14 flex flex-row md:flex-col w-screen">
 
                         {data.rol === 'employee' ? <></> : <li className={`menu-opciones efectohover hover:border-red-700  ${activeOption == 'Inicio' ? ('border-2 border-red-700 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
-                            <Link href="/dashboard"><a className="h-full w-full"><IconInicio /></a></Link>
+                            <Link href="/dashboard"><a className="p-1"><IconInicio /></a></Link>
                             {/* <Tooltip name="Inicio" nameTooltip="tooltipInicio" /> */}
                            
                         </li>}
