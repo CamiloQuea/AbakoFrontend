@@ -40,7 +40,7 @@ export default Login
 
 export async function getServerSideProps({ req, res }) {
 
-    console.log(req.cookies)
+    console.log(req.headers.cookies)
 
     const token = req.cookies.accessToken;
     const token2 = req.cookies.refreshToken;
