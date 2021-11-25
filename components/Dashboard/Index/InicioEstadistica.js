@@ -16,6 +16,8 @@ export default function InicioEstadistica() {
         const data = await response.json();
 
         console.log(data);
+
+        console.log(new Date())
         setTodos(data.data);
     };
 
