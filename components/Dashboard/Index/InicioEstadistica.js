@@ -75,17 +75,7 @@ export default function InicioEstadistica() {
 
                 options={{
                     maintainAspectRatio: false,
-                    responsive: true,
-                    scales: {
-                        xAxes: [{
-                            type: "time",
-                            time: {
-                                min: start,
-                                max: end,
-                                unit: "day"
-                            }
-                        }]
-                    }
+                    responsive: true
                 }}
             />
         </div>
