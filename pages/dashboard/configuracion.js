@@ -14,7 +14,6 @@ export default function configuracion() {
     const fetcher = (url) => {
 
         return fetch(url, {
-            headers: { accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
             credentials:'include'
         })
             .then(res => res.json())
