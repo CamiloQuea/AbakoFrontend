@@ -4,7 +4,7 @@ import FetcherGet from "../../../lib/FetcherGet"
 
 export default function InicioEstadistica() {
 
-    const {data,error} = useSWR(`https://api.abako.xyz/api/user/product`,url => FetcherGet(url))
+    const {data,error} = useSWR(`https://abakoapi.herokuapp.com/api/user/product`,url => FetcherGet(url))
     if(error) return 'error'
     if(!data) return 'loading'
    
@@ -13,9 +13,9 @@ export default function InicioEstadistica() {
     let stock=[];
     data.map(product=>(product.stock<10?products.push(product.type):''))
     data.map(product=>(product.stock<10?stock.push(product.stock):''))
-
+   
     return (<>
-        <div>
+        <div className="p-3">
             <Bar
                 data={{
                     labels: products,

@@ -28,7 +28,7 @@ export default function confEmpresaForm(props) {
         event.preventDefault();
 
 
-        const res = await fetch('https://api.abako.xyz/api/user/business', {
+        const res = await fetch('https://abakoapi.herokuapp.com/api/user/business', {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json',accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
             body: JSON.stringify(state),
@@ -37,7 +37,7 @@ export default function confEmpresaForm(props) {
 
         const respuestaJson=await res.json();
         
-        mutate(`https://api.abako.xyz/api/user`)
+        mutate(`https://abakoapi.herokuapp.com/api/user`)
         handleSearch()
     }
 

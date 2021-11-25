@@ -6,18 +6,17 @@ import Link from 'next/link'
 import LoadingSpinner from '../Recursos/LoadingSpinner'
 
 function LoginForm() {
-
+    
     /*Declaración de los state*/
-    const [state, setState] = useState({
+    const [state,setState] = useState({
         username: '',
         password: ''
     })
-
     const [form, setForm] = useState(false)
 
     /*Declaración de las funciones */
 
-    /*Función N°1 */
+    /*Función N°1 */    
     const handleChange = event => {
         const name = event.target.name;
         const value = event.target.value;
@@ -27,40 +26,36 @@ function LoginForm() {
             [name]: value
         }))
     }
-
     /*Función N°2*/
     const handleSubmit = async (event) => {
         event.preventDefault(); //evento para que el submit no te redireccione a otra pagina
 
         setForm({ state: 'loading' });
 
-        const res = await fetch('https://api.abako.xyz/api/session', {
+        const res = await fetch('https://abakoapi.herokuapp.com/api/session', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(state),
-            credentials: 'include'
+            credentials:'include'
         })
-
+        
         const resJson = await res.json() // capturo los datos que se envia desde el API en formato Json
+        const accessToken = await resJson.data.accessToken; // capturo el token que se envia desde el API
+        const refreshToken = await resJson.data.refreshToken; // capturo el token que se envia desde el API
+    
+        cookie.set("accessToken", accessToken, { expires: 5 / 24 }); // Seteo del cookie hacia la pagina
+        cookie.set("refreshToken", refreshToken, { expires: 5 / 24 }); // Seteo del cookie hacia la pagina
 
-        console.log({resJson})
         if (resJson.error == false) {
-            const accessToken = await resJson.data.accessToken; // capturo el token que se envia desde el API
-            const refreshToken = await resJson.data.refreshToken; // capturo el token que se envia desde el API
-
-            console.log({cookies:cookie.get()})
-            // cookie.set("accessToken", accessToken, { expires: 5 / 24 }); // Seteo del cookie hacia la pagina
-            //cookie.set("refreshToken", refreshToken, { expires: 5 / 24 }); // Seteo del cookie hacia la pagina
             router.push('/dashboard')
             setForm({ state: 'success', message: resJson.message })
-
+            
         } else {
             setForm({ state: 'error', message: resJson.message })
         }
-
+       
     }
-
-
+    
     /*Retorno del HTML*/
     return (
         <form onSubmit={handleSubmit}>
@@ -94,13 +89,13 @@ function LoginForm() {
                 </div>
                 <div>
                     <button type="submit" className="w-full flex justify-center bg-gray-300  hover:bg-gray-700 hover:text-gray-200 text-gray-700 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-300">
-                        {form.state == 'loading' ? (<LoadingSpinner />) : 'Ingresar'}
+                    {form.state=='loading'?(<LoadingSpinner/>):'Ingresar'}
                     </button>
                     {form.state == 'error' ? (
                         <div className='text-sm text-red-600 text-center'>{form.message}</div>
-                    ) : form.state == 'success' ? (
+                    ):form.state=='success'?(
                         <div className='text-sm'></div>
-                    ) : (<Link href="/register"><a href="#" className="hover:text-gray-300 text-sm py-2 text-white">¿Aún no te has registrado?</a></Link>)
+                    ): (<Link href="/register"><a href="#" className="hover:text-gray-300 text-sm py-2 text-white">¿Aún no te has registrado?</a></Link>)
                     }
 
                 </div>

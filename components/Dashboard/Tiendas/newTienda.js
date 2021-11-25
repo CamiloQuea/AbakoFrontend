@@ -52,14 +52,14 @@ export default function newTienda(props) {
 
     
 
-        const res = await fetch('https://api.abako.xyz/api/user/shop', {
+        const res = await fetch('https://abakoapi.herokuapp.com/api/user/shop', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
             body: JSON.stringify(shopState),
             credentials:'include'
         })
-        console.log( await res.json())
-        mutate('https://api.abako.xyz/api/user/shop')
+        
+        mutate('https://abakoapi.herokuapp.com/api/user/shop')
 
         handleModal()
            // router.reload();

@@ -18,7 +18,7 @@ export default function newMovimiento({ handleModal, shop_id }) {
             ...prevState,
             [name]: value
         }))
-        console.log(employeeState)
+  
 
     }
 
@@ -26,18 +26,18 @@ export default function newMovimiento({ handleModal, shop_id }) {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        const res = await fetch(`https://api.abako.xyz/api/user/shop/${shop_id}/movement`, {
+        const res = await fetch(`https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/movement`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
             body: JSON.stringify(employeeState),
             credentials: 'include'
         })
-        console.log(await res.json())
-        mutate(`https://api.abako.xyz/api/user/shop/${shop_id}/movement`)
+        
+        mutate(`https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/movement`)
         handleModal()
     }
 
-    const { data, error } = useSWR(`https://api.abako.xyz/api/user/shop/${shop_id}/product`, url => FetcherGet(url))
+    const { data, error } = useSWR(`https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/product`, url => FetcherGet(url))
     if(error) return 'asd'
     if (!data) return 'Loading'
     

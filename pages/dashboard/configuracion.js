@@ -14,20 +14,23 @@ export default function configuracion() {
     const fetcher = (url) => {
 
         return fetch(url, {
+            headers: { accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
             credentials:'include'
         })
             .then(res => res.json())
             .then(json => json.data);
     }
 
-    const { data, error, mutate } = useSWR(`https://api.abako.xyz/api/user`, fetcher);
+    const { data, error, mutate } = useSWR(`https://abakoapi.herokuapp.com/api/user`, fetcher);
     if(error) return 'Ocurrio un error:'
     if(!data) return 'Loading'
     if(data.rol==='employee') router.push('/dashboard/productos')
     return (
         <Sidebar active="Config" color='blue'>
-            <div className="grid xl:grid-cols-2 gap-4 grid-cols-1 mx-8 mt-6 xl:mb-0 mb-20">
-                <div className="xl:col-span-2 justify-center items-center justify-self-center">
+
+
+            <div className="grid xl:grid-cols-2 xl:gap-4 gap-10 grid-cols-1 mx-8 mt-6 xl:mb-0 mb-20">
+                <div className="xl:col-span-2 justify-center items-center justify-self-center mb-8">
                     <div className="justify-center flex">
 
                         <img className="w-52 h-52 rounded-full" src='/user.png' />
@@ -43,6 +46,8 @@ export default function configuracion() {
                 <ConfigGeneral data={data}/>
                 <ConfigEmpresa data={data}/>
             </div>
+
+
         </Sidebar>
     )
 };
