@@ -16,10 +16,10 @@ export default function InicioEstadistica() {
         const data = await response.json();
 
         setTodos(data.data);
-        
-        
 
-        data.data.forEach(mov=>{
+
+
+        data.data.forEach(mov => {
 
             console.log(formatDate(mov.createdAt));
 
@@ -77,7 +77,18 @@ export default function InicioEstadistica() {
 
                 options={{
                     maintainAspectRatio: false,
-                    responsive: true
+                    responsive: true,
+                    scales: {
+                        xAxes: [{
+                            type: "time",
+                            time: {
+                                min: start,
+                                max: end,
+                                unit: "day"
+                            }
+                        }]
+                    }
+
                 }}
             />
         </div>
