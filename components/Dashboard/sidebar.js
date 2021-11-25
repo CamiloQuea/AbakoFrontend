@@ -71,19 +71,19 @@ export default function sidebar({ children, active, color }) {
                         </li>}
 
                         <li className={`menu-opciones efectohover hover:border-yellow-400 ${activeOption == 'Productos' ? ('border-2 border-yellow-400 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
-                            <Link href="/dashboard/productos"><a><IconProductos /></a></Link>
+                            <Link href="/dashboard/productos"><a className="p-1"><IconProductos /></a></Link>
                             {/* <Tooltip name="Productos" nameTooltip="tooltipProducto" /> */}
                             
                         </li>
 
                         {data.rol === 'employee' ? <></> : <li className={`menu-opciones efectohover hover:border-green-700 ${activeOption == 'Tiendas' ? ('border-2 border-green-800 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
-                            <Link href="/dashboard/tiendas"><a><IconTiendas /></a></Link>
+                            <Link href="/dashboard/tiendas"><a className="p-1"><IconTiendas /></a></Link>
                             {/* <Tooltip name="Tiendas" nameTooltip="tooltipTienda" /> */}
                             
                         </li>}
 
                         {data.rol === 'employee' ? <></> : <li className={`menu-opciones efectohover hover:border-blue-700 ${activeOption == 'Config' ? ('border-2 border-blue-700 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
-                            <Link href="/dashboard/configuracion"><a><IconConfiguracion /></a></Link>
+                            <Link href="/dashboard/configuracion"><a className="p-1"><IconConfiguracion /></a></Link>
                             {/* <Tooltip name="Configuracion" nameTooltip="tooltipConfiguracion" /> */}
                             
                         </li>}
