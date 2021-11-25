@@ -14,15 +14,29 @@ export default function sidebar({ children, active, color }) {
 
     const [mounted, setMounted] = useState(false);
     const { resolvedTheme, setTheme } = useTheme();
+    const [data, setTodos] = useState([]);
     useEffect(() => setMounted(true), []);
 
 
     const [activeOption, setActiveOption] = useState(active);
 
-    const { data, error, mutate } = useSWR(`https://api.abako.xyz/api/user`, url => FetcherGet(url));
+    // const { data, error, mutate } = useSWR(`https://api.abako.xyz/api/user`, url => FetcherGet(url));
 
-    if (error) return 'Ocurrio un error:'
-    if (!data) return 'Loading'
+    // if (error) return 'Ocurrio un error:'
+    // if (!data) return 'Loading'
+
+    const getData = async () => {
+        const response = await fetch(`https://api.abako.xyz/api/user`, {
+            credentials: 'include'
+        }
+        );
+        const data = await response.json();
+        setTodos(data.data);
+    };
+
+    useEffect(() => {
+        getData();
+    }, [])
 
     //TooltipFunction();
 
@@ -67,25 +81,25 @@ export default function sidebar({ children, active, color }) {
                         {data.rol === 'employee' ? <></> : <li className={`menu-opciones efectohover hover:border-red-700  ${activeOption == 'Inicio' ? ('border-2 border-red-700 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
                             <Link href="/dashboard"><a className="p-1"><IconInicio /></a></Link>
                             {/* <Tooltip name="Inicio" nameTooltip="tooltipInicio" /> */}
-                           
+
                         </li>}
 
                         <li className={`menu-opciones efectohover hover:border-yellow-400 ${activeOption == 'Productos' ? ('border-2 border-yellow-400 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
                             <Link href="/dashboard/productos"><a className="p-1"><IconProductos /></a></Link>
                             {/* <Tooltip name="Productos" nameTooltip="tooltipProducto" /> */}
-                            
+
                         </li>
 
                         {data.rol === 'employee' ? <></> : <li className={`menu-opciones efectohover hover:border-green-700 ${activeOption == 'Tiendas' ? ('border-2 border-green-800 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
                             <Link href="/dashboard/tiendas"><a className="p-1"><IconTiendas /></a></Link>
                             {/* <Tooltip name="Tiendas" nameTooltip="tooltipTienda" /> */}
-                            
+
                         </li>}
 
                         {data.rol === 'employee' ? <></> : <li className={`menu-opciones efectohover hover:border-blue-700 ${activeOption == 'Config' ? ('border-2 border-blue-700 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
                             <Link href="/dashboard/configuracion"><a className="p-1"><IconConfiguracion /></a></Link>
                             {/* <Tooltip name="Configuracion" nameTooltip="tooltipConfiguracion" /> */}
-                            
+
                         </li>}
 
                     </ul>
