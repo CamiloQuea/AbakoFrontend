@@ -67,7 +67,7 @@ export default function sidebar({ children, active, color }) {
                         {data.rol === 'employee' ? <></> : <li className={`menu-opciones efectohover hover:border-red-700  ${activeOption == 'Inicio' ? ('border-2 border-red-700 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
                             <Link href="/dashboard"><a><IconInicio /></a></Link>
                             {/* <Tooltip name="Inicio" nameTooltip="tooltipInicio" /> */}
-                            
+                           
                         </li>}
 
                         <li className={`menu-opciones efectohover hover:border-yellow-400 ${activeOption == 'Productos' ? ('border-2 border-yellow-400 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
