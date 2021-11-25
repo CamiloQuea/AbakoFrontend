@@ -6,12 +6,16 @@ export default function InicioEstadistica() {
 
     const {data,error} = useSWR(`https://abakoapi.herokuapp.com/api/user/product`,url => FetcherGet(url))
     if(error) return 'error'
-    if(!data) return 'loading'
-   
+    if(!data) return 'loading'   
 
     let products=[];
+
     let stock=[];
+
+    console.log(data);
+
     data.map(product=>(product.stock<10?products.push(product.type):''))
+
     data.map(product=>(product.stock<10?stock.push(product.stock):''))
    
     return (<>
