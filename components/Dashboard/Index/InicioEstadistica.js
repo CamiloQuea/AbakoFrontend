@@ -9,7 +9,7 @@ export default function InicioEstadistica() {
     const [todos, setTodos] = useState([]);
 
     const getData = async () => {
-        const response = await fetch(!shop_id ? `https://abakoapi.herokuapp.com/api/user/movement` : `https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/movement`, {
+        const response = await fetch(`https://abakoapi.herokuapp.com/api/user/movement`, {
             credentials: 'include'
         }
         );
@@ -43,7 +43,7 @@ export default function InicioEstadistica() {
 
     let stock = [];
 
-    
+
 
 
 
