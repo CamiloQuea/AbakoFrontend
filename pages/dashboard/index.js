@@ -23,7 +23,7 @@ export default function inicio() {
     
 
     if(data.rol=='employee') router.push('dashboard/productos')
-    console.log(data.rol)
+    
     
     return (
 
