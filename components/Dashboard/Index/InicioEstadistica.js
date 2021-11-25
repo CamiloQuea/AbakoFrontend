@@ -17,7 +17,7 @@ export default function InicioEstadistica() {
 
         console.log(data);
 
-        console.log(new Date())
+        console.log(Date.now())
         setTodos(data.data);
     };
 
