@@ -4,9 +4,35 @@ import FetcherGet from "../../../lib/FetcherGet"
 
 export default function InicioEstadistica() {
 
-    const {data,error} = useSWR(`https://abakoapi.herokuapp.com/api/user/product`,url => FetcherGet(url))
-    if(error) return 'error'
-    if(!data) return 'loading'   
+    
+    const [todos, setTodos] = useState([]);
+
+    const getData = async () => {
+        const response = await fetch(!shop_id ? `https://abakoapi.herokuapp.com/api/user/movement` : `https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/movement`, {
+            headers: { accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
+            credentials: 'include'
+        }
+        );
+        const data = await response.json();
+        setTodos(data.data);
+    };
+
+
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [day, month, year].join('/') + " " + [d.toLocaleTimeString()];
+
+    }
+
 
     let products=[];
 
@@ -14,9 +40,7 @@ export default function InicioEstadistica() {
 
     console.log(data);
 
-    data.map(product=>(product.stock<10?products.push(product.type):''))
-
-    data.map(product=>(product.stock<10?stock.push(product.stock):''))
+    
    
     return (<>
         <div className="p-3">
