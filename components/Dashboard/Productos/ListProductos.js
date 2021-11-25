@@ -1,4 +1,3 @@
-import useSWR from 'swr';
 import cookie from 'js-cookie';
 import { useState, useEffect, useMemo } from 'react'
 import NewProducto from '../Tiendas/newProducto';
@@ -23,7 +22,7 @@ export default function ListProductos({ shop_id }) {
         setTodos(data.data);
     };
 
-    
+
 
     const viewModal = () => {
         setModal("true")
@@ -127,6 +126,7 @@ export default function ListProductos({ shop_id }) {
         nextPage,
         previousPage,
         setPageSize,
+
         state: { pageIndex, pageSize },
     } = intance
 
@@ -147,7 +147,7 @@ export default function ListProductos({ shop_id }) {
                     setGlobalFilter={setGlobalFilter}
                     globalFilter={state.globalFilter}
                 /></div>
-            </div> :<div className='grid grid-cols-1'> <div className='p-4 justify-self-start'> <GlobalFilter preGlobalFilteredRows={preGlobalFilteredRows}
+            </div> : <div className='grid grid-cols-1'> <div className='p-4 justify-self-start'> <GlobalFilter preGlobalFilteredRows={preGlobalFilteredRows}
                 setGlobalFilter={setGlobalFilter}
                 globalFilter={state.globalFilter}
             /></div></div>}
@@ -177,23 +177,30 @@ export default function ListProductos({ shop_id }) {
                     ))}
                 </thead>
                 <tbody {...getTableBodyProps()}>
-                    {page.map((row, i) => {
-                        prepareRow(row)
-                        return (
-                            <tr {...row.getRowProps()}>
-                                {row.cells.map(cell => {
-                                    return (
-                                        <td
-                                            {...cell.getCellProps()}
-                                            className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-blueGray-700 "
-                                        >
-                                            {cell.render('Cell')}
-                                        </td>
-                                    )
-                                })}
-                            </tr>
+                    {
+                        page.length > 0 && !loading ? (
+                            page.map((row, i) => {
+                                prepareRow(row)
+                                return (
+                                    <tr {...row.getRowProps()}>
+                                        {row.cells.map(cell => {
+                                            return (
+                                                <td
+                                                    {...cell.getCellProps()}
+                                                    className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-blueGray-700 "
+                                                >
+                                                    {cell.render('Cell')}
+                                                </td>
+                                            )
+                                        })}
+                                    </tr>
+                                )
+                            })
+
+                        ) : (
+                            <div>loading...</div>
                         )
-                    })}
+                    }
                 </tbody>
             </table>
 
