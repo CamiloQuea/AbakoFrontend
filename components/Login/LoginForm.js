@@ -44,7 +44,6 @@ function LoginForm() {
         const resJson = await res.json() // capturo los datos que se envia desde el API en formato Json
 
         console.log({resJson})
-
         if (resJson.error == false) {
             const accessToken = await resJson.data.accessToken; // capturo el token que se envia desde el API
             const refreshToken = await resJson.data.refreshToken; // capturo el token que se envia desde el API
