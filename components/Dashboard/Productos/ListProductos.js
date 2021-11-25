@@ -14,7 +14,7 @@ export default function ListProductos({ shop_id }) {
     const [todos, setTodos] = useState([]);
 
     const getData = async () => {
-        const response = await fetch(!shop_id ? `https://abakoapi.herokuapp.com/api/user/product` : `https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/product`, {
+        const response = await fetch(!shop_id ? `https://api.abako.xyz/api/user/product` : `https://api.abako.xyz/api/user/shop/${shop_id}/product`, {
             headers: { accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
             credentials: 'include'
         }

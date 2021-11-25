@@ -21,7 +21,7 @@ export default function configuracion() {
             .then(json => json.data);
     }
 
-    const { data, error, mutate } = useSWR(`https://abakoapi.herokuapp.com/api/user`, fetcher);
+    const { data, error, mutate } = useSWR(`https://api.abako.xyz/api/user`, fetcher);
     if(error) return 'Ocurrio un error:'
     if(!data) return 'Loading'
     if(data.rol==='employee') router.push('/dashboard/productos')

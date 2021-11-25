@@ -13,7 +13,7 @@ export default function ListEmpleado({ shop_id }) {
     const [todos, setTodos] = useState([]);
 
     const getData = async () => {
-        const response = await fetch(`https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/employee`, {
+        const response = await fetch(`https://abakoapi.hapi.abako.xyzerokuapp.com/api/user/shop/${shop_id}/employee`, {
             headers: { accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
             credentials: 'include'
         }
