@@ -155,7 +155,7 @@ export default function ListProductos({ shop_id }) {
             {modal == "" ? (<></>) : (<NewProducto shop_id={shop_id} handleModal={handleModal} />)}
 
 
-            <table {...getTableProps()} className="items-center bg-transparent w-full border-collapse text-center">
+            <table {...getTableProps()} className="block items-center bg-transparent w-full border-collapse text-center flex-grow overflow-auto">
                 <thead>
                     {headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()}>

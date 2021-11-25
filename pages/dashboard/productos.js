@@ -14,7 +14,7 @@ export default function productos() {
         <div className='flex-1 md:py-10 md:px-20  p-10 mb-10'>
             <div className='grid grid-cols-1 h-full'>
 
-                <div className='rounded-xl overflow-auto shadow-md'>
+                <div className='rounded-xl shadow-md'>
 
 
                     <ListProductos/>
