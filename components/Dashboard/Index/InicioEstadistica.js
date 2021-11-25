@@ -47,7 +47,8 @@ export default function InicioEstadistica() {
 
 
 
-
+    start.setDate(start.getDate() - 7);
+    start.setHours(0, 0, 0, 0);
 
     return (<>
         <div className="p-3">
@@ -70,6 +71,16 @@ export default function InicioEstadistica() {
                 options={{
                     maintainAspectRatio: false,
                     responsive: true,
+                    scales: {
+                        xAxes: [{
+                            type: "time",
+                            time: {
+                                min: start,
+                                max: end,
+                                unit: "day"
+                            }
+                        }]
+                    }
                 }}
             />
         </div>
