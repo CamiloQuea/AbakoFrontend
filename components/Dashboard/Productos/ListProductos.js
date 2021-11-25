@@ -205,7 +205,7 @@ export default function ListProductos({ shop_id }) {
                 </tbody>
             </table>
 
-            <div className="pagination grid grid-cols-3 px-2 justify-self-end">
+            <div className="pagination grid grid-cols-3 px-2 self-end">
                 <div className="justify-self-start">
                     <span>
                         Ir a la pag.:{' '}
