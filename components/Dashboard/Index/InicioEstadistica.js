@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Bar,Pie,Doughnut} from "react-chartjs-2"
+import { Bar, Pie, Doughnut } from "react-chartjs-2"
 import useSWR from "swr"
 import FetcherGet from "../../../lib/FetcherGet"
 
 export default function InicioEstadistica() {
 
-    
+
     const [todos, setTodos] = useState([]);
 
     const getData = async () => {
@@ -34,15 +34,18 @@ export default function InicioEstadistica() {
 
     }
 
+    useEffect(() => {
+        getData();
+    }, [modal])
 
-    let products=[];
+    let products = [];
 
-    let stock=[];
+    let stock = [];
 
-    console.log(data);
+    console.log(todos);
 
-    
-   
+
+
     return (<>
         <div className="p-3">
             <Bar
@@ -67,6 +70,6 @@ export default function InicioEstadistica() {
                 }}
             />
         </div>
-        
+
     </>)
 }
