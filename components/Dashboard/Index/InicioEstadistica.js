@@ -11,14 +11,18 @@ export default function InicioEstadistica() {
     const getData = async () => {
         const response = await fetch(`https://abakoapi.herokuapp.com/api/user/movement`, {
             credentials: 'include'
-        }
-        );
+        });
+
         const data = await response.json();
 
-        console.log(data);
-
-        console.log(new Date())
         setTodos(data.data);
+        
+        todos.forEach(mov=>{
+
+            console.log(formatDate(mov.createdAt));
+
+        })
+
     };
 
 
