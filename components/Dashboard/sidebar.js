@@ -67,33 +67,25 @@ export default function sidebar({ children, active, color }) {
                         {data.rol === 'employee' ? <></> : <li className={`menu-opciones efectohover hover:border-red-700  ${activeOption == 'Inicio' ? ('border-2 border-red-700 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
                             <Link href="/dashboard"><a><IconInicio /></a></Link>
                             {/* <Tooltip name="Inicio" nameTooltip="tooltipInicio" /> */}
-                            <div className="ml-10 bg-gray-900 text-gray-100 px-2 py-1.5 md:absolute md:block rounded-lg shadow-xl tooltip hidden">
-                                Inicio
-                            </div>
+                            
                         </li>}
 
                         <li className={`menu-opciones efectohover hover:border-yellow-400 ${activeOption == 'Productos' ? ('border-2 border-yellow-400 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
                             <Link href="/dashboard/productos"><a><IconProductos /></a></Link>
                             {/* <Tooltip name="Productos" nameTooltip="tooltipProducto" /> */}
-                            <div className="ml-10 bg-gray-900 text-gray-100 px-2 py-1.5 md:absolute md:block rounded-lg shadow-xl tooltip hidden">
-                                Productos
-                            </div>
+                            
                         </li>
 
                         {data.rol === 'employee' ? <></> : <li className={`menu-opciones efectohover hover:border-green-700 ${activeOption == 'Tiendas' ? ('border-2 border-green-800 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
                             <Link href="/dashboard/tiendas"><a><IconTiendas /></a></Link>
                             {/* <Tooltip name="Tiendas" nameTooltip="tooltipTienda" /> */}
-                            <div className="ml-10 bg-gray-900 text-gray-100 px-2 py-1.5 md:absolute md:block rounded-lg shadow-xl tooltip hidden">
-                                Tiendas
-                            </div>
+                            
                         </li>}
 
                         {data.rol === 'employee' ? <></> : <li className={`menu-opciones efectohover hover:border-blue-700 ${activeOption == 'Config' ? ('border-2 border-blue-700 rounded-lg md:transform-none transform -translate-y-0.5') : ('border-transparent border-2')}`}>
                             <Link href="/dashboard/configuracion"><a><IconConfiguracion /></a></Link>
                             {/* <Tooltip name="Configuracion" nameTooltip="tooltipConfiguracion" /> */}
-                            <div className="ml-10 bg-gray-900 text-gray-100 px-2 py-1.5 md:absolute md:block rounded-lg shadow-xl tooltip hidden">
-                                Configuracion
-                            </div>
+                            
                         </li>}
 
                     </ul>
