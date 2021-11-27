@@ -75,22 +75,22 @@ export default function newTienda(props) {
 
                 <form className="modal-conteiner" onSubmit={handleSubmit}>
                     <div className="flex items-center mb-5">
-                        <label htmlFor="name" className="inline-block w-20 mr-6 text-right font-bold dark:text-white text-gray-600">Nombre</label>
+                        <label htmlFor="name" className="inline-block w-20 md:mr-6 mr-0 md:text-right text-center font-bold dark:text-white text-gray-600">Nombre</label>
                         <input type="text" id="name" name="name" placeholder="Nombre" onChange={handleChange}
-                            className="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
-                              text-gray-600 placeholder-gray-400 outline-none"></input>
+                            className="md:text-left text-center flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                            text-gray-600 dark:text-white outline-none dark:bg-pruebaA3"></input>
                     </div>
                     <div className="flex items-center mb-5">
-                        <label htmlFor="name" className="inline-block w-20 mr-6 text-right font-bold dark:text-white text-gray-600">Direccion</label>
+                        <label htmlFor="name" className="inline-block w-20 md:mr-6 mr-0 md:text-right text-center font-bold dark:text-white text-gray-600">Direccion</label>
                         <input type="text" id="add" name="address" placeholder="Direccion" onChange={handleChange}
-                            className="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
-                              text-gray-600 placeholder-gray-400 outline-none"></input>
+                            className="md:text-left text-center flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                            text-gray-600 dark:text-white outline-none dark:bg-pruebaA3"></input>
                     </div>
                     <div className="flex items-center mb-5">
-                        <label htmlFor="name" className="inline-block w-20 mr-6 text-right font-bold dark:text-white text-gray-600">Telefono</label>
+                        <label htmlFor="name" className="inline-block w-20 md:mr-6 mr-0 md:text-right text-center font-bold dark:text-white text-gray-600">Telefono</label>
                         <input type="number" id="num" name="number" placeholder="Telefono" onChange={handleChange}
-                            className="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
-                              text-gray-600 placeholder-gray-400 outline-none"></input>
+                            className="md:text-left text-center flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                            text-gray-600 dark:text-white outline-none dark:bg-pruebaA3"></input>
                     </div>
                     {/* <div className="flex items-center mb-5">
                         <label htmlFor="name" className="inline-block w-20 mr-6 text-right font-bold dark:text-white text-gray-600">Imagen</label>
