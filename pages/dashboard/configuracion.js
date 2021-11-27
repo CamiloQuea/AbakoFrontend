@@ -35,6 +35,8 @@ export default function configuracion() {
 
         data.append('user_image', e.file)
 
+        console.log(e.file)
+
         const response = await fetch('https://api.abako.xyz/api/user', {
             method: 'PATCH',
             credentials: 'include',
