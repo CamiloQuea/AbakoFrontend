@@ -5,6 +5,7 @@ import NewProducto from '../Tiendas/newProducto';
 import { useTable, useSortBy, useGlobalFilter, usePagination } from 'react-table'
 import GlobalFilter from '../../../lib/GlobalFilter';
 import PaginationTable from '../../../lib/PaginationTable';
+import EditProductos from '../Productos/EditProductos'
 
 
 
@@ -14,9 +15,11 @@ export default function ListProductos({ shop_id }) {
     const [modal, setModal] = useState("");
     const [todos, setTodos] = useState([]);
 
+    const [modalEdit,setModalEdit]= useState("");
+    const [editar,setEditar]=useState([]);
+
     const getData = async () => {
-        const response = await fetch(!shop_id ? `https://abakoapi.herokuapp.com/api/user/product` : `https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/product`, {
-            headers: { accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
+        const response = await fetch(!shop_id ? `https://api.abako.xyz/api/user/product` : `https://api.abako.xyz/api/user/shop/${shop_id}/product`, {
             credentials: 'include'
         }
         );
@@ -31,7 +34,14 @@ export default function ListProductos({ shop_id }) {
     }
     const handleModal = () => {
         setModal("")
+        setModalEdit("")
     }
+
+    const btnEdit=({data})=>{
+        setEditar({data})
+        setModalEdit('true')
+    }
+
     const columns = useMemo(() => [], [])
 
 
@@ -100,16 +110,28 @@ export default function ListProductos({ shop_id }) {
         )
     }
 
-
-
-
-
-
+    const tableHooks = (hooks) => {
+        hooks.visibleColumns.push((columns) => [
+            ...columns,
+            {
+                id: "Edit",
+                Header: "Editar",
+                Cell: ({ row }) => (
+                    <button onClick={()=>{btnEdit({data:row.values})}}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                            <path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd" />
+                        </svg>
+                    </button>
+                ),
+            },
+        ]);
+    };
 
 
     const productsData = useMemo(() => [...todos], [todos]);
 
-    const intance = useTable({ columns, data: productsData, initialState: { pageIndex: 0 } }, useGlobalFilter, useSortBy, usePagination)
+    const intance = useTable({ columns, data: productsData, initialState: { pageIndex: 0 } }, useGlobalFilter, tableHooks, useSortBy, usePagination)
     const {
         getTableProps,
         getTableBodyProps,
@@ -136,14 +158,16 @@ export default function ListProductos({ shop_id }) {
         getData();
     }, [modal])
 
+    
 
     return (<>
 
 
         <div className="">
+            
 
             {shop_id ? <div className='grid md:grid-cols-2 grid-cols-1'>
-                <div><button onClick={viewModal} className="p-4"> + Añadir</button></div>
+                <div className="self-center"><button onClick={viewModal} className="pl-2 pr-3 border-r dark:border-prueba"> + Añadir</button></div>
                 <div className='p-4 justify-self-end'> <GlobalFilter preGlobalFilteredRows={preGlobalFilteredRows}
                     setGlobalFilter={setGlobalFilter}
                     globalFilter={state.globalFilter}
@@ -154,7 +178,9 @@ export default function ListProductos({ shop_id }) {
                 globalFilter={state.globalFilter}
                 rows={rows}
             /></div></div>}
+            
             {modal == "" ? (<></>) : (<NewProducto shop_id={shop_id} handleModal={handleModal} />)}
+            {modalEdit==""?(<></>):(<EditProductos editar={editar} handleModal={handleModal}/>)}
 
             <div className='overflow-auto'>
                 <table {...getTableProps()} className="items-center bg-transparent w-full border-collapse text-center">
@@ -164,7 +190,7 @@ export default function ListProductos({ shop_id }) {
                                 {headerGroup.headers.map(column => (
                                     <th
                                         {...column.getHeaderProps(column.getSortByToggleProps())}
-                                        className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold"
+                                        className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border dark:border-prueba border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold"
                                     >
                                         {column.render('Header')}
                                         <span>

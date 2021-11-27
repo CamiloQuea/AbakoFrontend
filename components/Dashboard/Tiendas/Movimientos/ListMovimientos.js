@@ -12,8 +12,8 @@ export default function ListMovimientos({ shop_id }) {
     const [todos, setTodos] = useState([]);
 
     const getData = async () => {
-        const response = await fetch(!shop_id ? `https://abakoapi.herokuapp.com/api/user/movement` : `https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/movement`, {
-            headers: { accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
+        const response = await fetch(!shop_id ? `https://api.abako.xyz/api/user/movement` : `https://api.abako.xyz/api/user/shop/${shop_id}/movement`, {
+
             credentials: 'include'
         }
         );
@@ -194,7 +194,7 @@ export default function ListMovimientos({ shop_id }) {
             rows={rows}
         /></div></div>}
         {modal == "" ? (<></>) : (<NewMovimiento shop_id={shop_id} handleModal={handleModal} />)}
-        <div className="overflow-auto">
+        <div className="overflow-x-auto">
             <table {...getTableProps()} className="items-center bg-transparent w-full border-collapse text-center">
                 <thead>
                     {headerGroups.map(headerGroup => (
@@ -202,7 +202,7 @@ export default function ListMovimientos({ shop_id }) {
                             {headerGroup.headers.map(column => (
                                 <th
                                     {...column.getHeaderProps(column.getSortByToggleProps())}
-                                    className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold"
+                                    className="px-6  align-middle border dark:border-prueba  py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold"
                                 >
                                     {column.render('Header')}
                                     <span>

@@ -32,7 +32,7 @@ function LoginForm() {
 
         setForm({ state: 'loading' });
 
-        const res = await fetch('https://abakoapi.herokuapp.com/api/session', {
+        const res = await fetch('https://api.abako.xyz/api/session', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(state),
@@ -40,13 +40,11 @@ function LoginForm() {
         })
         
         const resJson = await res.json() // capturo los datos que se envia desde el API en formato Json
-        const accessToken = await resJson.data.accessToken; // capturo el token que se envia desde el API
-        const refreshToken = await resJson.data.refreshToken; // capturo el token que se envia desde el API
-    
-        cookie.set("accessToken", accessToken, { expires: 5 / 24 }); // Seteo del cookie hacia la pagina
-        cookie.set("refreshToken", refreshToken, { expires: 5 / 24 }); // Seteo del cookie hacia la pagina
 
+        
+       
         if (resJson.error == false) {
+            
             router.push('/dashboard')
             setForm({ state: 'success', message: resJson.message })
             

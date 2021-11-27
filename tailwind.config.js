@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
@@ -12,16 +14,26 @@ module.exports = {
         'secondary':'#0F0F0F',
         'pruebaA': '#5C7AEA',
         'pruebaA2':'#112031',
-        'pruebaA3':'#353232',
+        'pruebaA3':'#36393f',
         'pruebaA4':'#171310',
-        'pruebaA5':'#d8ce98'
+        'pruebaA5':'#202225',
+        'prueba6':'#282626',
+        'prueba7':'#2d3035'
       }),
+
       gradientColorStops: theme => ({
         ...theme('colors'),
         'primary': '#202224',
         'secondary':'#0F0F0F'
         
       }),
+
+      borderColor: theme => ({
+        ...theme('colors'), 
+        'prueba':'#4b4b4b',
+        'prueba6':'#111111'
+      }),
+
       fontFamily: {
         test: ['Heebo', 'sans-serif']
       }

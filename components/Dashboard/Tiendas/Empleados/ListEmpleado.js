@@ -14,8 +14,7 @@ export default function ListEmpleado({ shop_id }) {
     const [todos, setTodos] = useState([]);
 
     const getData = async () => {
-        const response = await fetch(`https://abakoapi.herokuapp.com/api/user/shop/${shop_id}/employee`, {
-            headers: { accessToken: cookie.get('accessToken'), refreshToken: cookie.get('refreshToken') },
+        const response = await fetch(`https://api.abako.xyzm/api/user/shop/${shop_id}/employee`, {
             credentials: 'include'
         }
         );
@@ -115,7 +114,7 @@ export default function ListEmpleado({ shop_id }) {
                                 {headerGroup.headers.map(column => (
                                     <th
                                         {...column.getHeaderProps(column.getSortByToggleProps())}
-                                        className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold"
+                                        className="px-6 bg-blueGray-50 text-blueGray-500  dark:border-prueba align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold"
                                     >
                                         {column.render('Header')}
                                         <span>
