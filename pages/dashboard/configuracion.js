@@ -42,11 +42,13 @@ export default function configuracion() {
     async function handleSubmit(e) {
         e.preventDefault();
 
+        console.log(state)
+
         const formData = new FormData();
 
-        for (let [key, value] of Object.entries(state)) {
-            formData.append(key, value);
-        }
+
+        formData.append('user_image', state.user_image);
+
 
         const response = await fetch('https://api.abako.xyz/api/user', {
             method: 'PATCH',
