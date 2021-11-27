@@ -6,15 +6,14 @@ import useSWR from 'swr';
 import cookie from 'js-cookie';
 import router from 'next/router';
 import { useState } from 'react';
+import AddImage from '../../components/Dashboard/Configuracion/addImage';
 
 
 
 
 export default function configuracion() {
 
-    const [state, setState] = useState({
-        user_image: null
-    });
+    
     const [modal, setModal] = useState("");
 
     const handleModal = () => {
@@ -41,36 +40,7 @@ export default function configuracion() {
     if (data.rol === 'employee') router.push('/dashboard/productos')
 
 
-    function handleChange(e) {
-
-        setState({ ...state, [e.target.name]: e.target.files[0] });
-
-    }
-
-
-    async function handleSubmit(e) {
-        e.preventDefault();
-
-        console.log(state)
-
-        const formData = new FormData();
-
-
-        formData.append('user_image', state.user_image);
-
-
-        const response = await fetch('https://api.abako.xyz/api/user', {
-            method: 'PATCH',
-            credentials: 'include',
-            body: formData
-
-        })
-
-        const resJson = response.json();
-
-
-
-    }
+    
 
     return (
         <Sidebar active="Config" color='blue'>
@@ -87,14 +57,9 @@ export default function configuracion() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
 
                             </svg>
-                            {modal == "" ? (<></>) : (<NewTienda handleModal={handleModal} />)}
+                            {modal == "" ? (<></>) : (<AddImage handleModal={handleModal} />)}
                         </div>
-                        <form onSubmit={handleSubmit} method="PATCH" action="https://api.abako.xyz/api/user">
-
-                            <input type="file" name="user_image" onChange={handleChange} />
-                            <button className="bg-gray-900 text-white p-3" type="submit" >Agregar</button>
-
-                        </form>
+                        
                     </div>
                     <div className="text-3xl font-bold text-black dark:text-white text-center uppercase">{data.firstName} {data.lastName}</div>
                 </div>
