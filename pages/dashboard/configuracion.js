@@ -67,7 +67,7 @@ export default function configuracion() {
                         <form onSubmit={handleSubmit}>
 
                             <input type="file" name="user_image" />
-                            <button className="bg-gray-900 text-white p-3">Agregar</button>
+                            <button className="bg-gray-900 text-white p-3" type="submit">Agregar</button>
 
                         </form>
                     </div>
