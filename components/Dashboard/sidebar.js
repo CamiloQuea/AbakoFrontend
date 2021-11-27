@@ -51,7 +51,7 @@ export default function sidebar({ children, active, color }) {
                 <div className="image-business-sidebar">
 
                     <div className="mb-2">
-                        <img className="w-52 h-52 rounded-full bg-cover" src={data.user_image ? data.user_image : '/user.png'} />
+                        <img className="w-52 h-52 rounded-full bg-contain" src={data.user_image ? data.user_image : '/user.png'} />
                     </div>
 
                 </div>
