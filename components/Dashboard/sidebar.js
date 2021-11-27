@@ -51,7 +51,8 @@ export default function sidebar({ children, active, color }) {
                 <div className="image-business-sidebar">
 
                     <div className="mb-2">
-                        <img className="w-52 h-52 rounded-full bg-contain" src={data.user_image ? data.user_image : '/user.png'} />
+                        
+                        <img className="relative left-1/2 transform -translate-x-1/2 block w-14 h-14 rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
                     </div>
 
                 </div>
@@ -132,9 +133,9 @@ export default function sidebar({ children, active, color }) {
                 <div className="navbar-sidebar">
                     <Navbar colors={color} name={active} user={data.username} />
                 </div>
-
-                {children}
-
+               
+                    {children}
+                
             </div>
         </div>
 
