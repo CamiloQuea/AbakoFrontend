@@ -53,8 +53,7 @@ export default function configuracion() {
         const response = await fetch('https://api.abako.xyz/api/user', {
             method: 'PATCH',
             credentials: 'include',
-            body: formData,
-            headers: { 'Content-Type': 'multipart/form-data' }
+            body: formData
 
         })
 
