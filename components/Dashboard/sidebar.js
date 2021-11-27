@@ -51,7 +51,7 @@ export default function sidebar({ children, active, color }) {
                 <div className="image-business-sidebar">
 
                     <div className="mb-2">
-                        
+
                         <img className="relative left-1/2 transform -translate-x-1/2 block w-14 max-h-16 rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
                     </div>
 
@@ -119,7 +119,7 @@ export default function sidebar({ children, active, color }) {
                 {/*Btn-Logout */}
                 <div
                     className="btn-logout"
-                    onClick={() => { { removeCookie() } router.push("/login") }}>
+                    onClick={async () => { await removeCookie(); router.push("/login") }}>
                     <div>
                         <IconLogout />
                     </div>
@@ -133,9 +133,9 @@ export default function sidebar({ children, active, color }) {
                 <div className="navbar-sidebar">
                     <Navbar colors={color} name={active} user={data.username} />
                 </div>
-               
-                    {children}
-                
+
+                {children}
+
             </div>
         </div>
 
