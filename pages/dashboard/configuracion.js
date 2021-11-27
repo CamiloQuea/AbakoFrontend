@@ -5,11 +5,16 @@ import ConfigEmpresa from '../../components/Dashboard/Configuracion/configuracio
 import useSWR from 'swr';
 import cookie from 'js-cookie';
 import router from 'next/router';
+import { useState } from 'react';
 
 
 
 
 export default function configuracion() {
+
+    const [state, setState] = useState({
+        user_image: null
+    });
 
     const fetcher = (url) => {
 
@@ -25,6 +30,13 @@ export default function configuracion() {
     if (error) return 'Ocurrio un error:'
     if (!data) return 'Loading'
     if (data.rol === 'employee') router.push('/dashboard/productos')
+
+
+    function handleChange(e) {
+
+        setState({ ...state, [e.target.name]: e.target.files[0] });
+
+    }
 
 
     async function handleSubmit(e) {
@@ -67,7 +79,7 @@ export default function configuracion() {
                         </div>
                         <form onSubmit={handleSubmit} method="PATCH" action="https://api.abako.xyz/api/user">
 
-                            <input type="file" name="user_image" />
+                            <input type="file" name="user_image" onChange={handleChange} />
                             <button className="bg-gray-900 text-white p-3" type="submit" >Agregar</button>
 
                         </form>
