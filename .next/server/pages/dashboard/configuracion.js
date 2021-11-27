@@ -638,10 +638,25 @@ function configuracion() {
         ).then((json)=>json.data
         );
     };
-    const { data , error , mutate  } = swr__WEBPACK_IMPORTED_MODULE_4___default()(`https://api.abako.xyz/api/user`, fetcher);
+    const { data: data1 , error , mutate  } = swr__WEBPACK_IMPORTED_MODULE_4___default()(`https://api.abako.xyz/api/user`, fetcher);
     if (error) return 'Ocurrio un error:';
-    if (!data) return 'Loading';
-    if (data.rol === 'employee') next_router__WEBPACK_IMPORTED_MODULE_6___default().push('/dashboard/productos');
+    if (!data1) return 'Loading';
+    if (data1.rol === 'employee') next_router__WEBPACK_IMPORTED_MODULE_6___default().push('/dashboard/productos');
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        const data = new FormData();
+        data.append('user_image', e.file);
+        console.log(e.file);
+        const response = await fetch('https://api.abako.xyz/api/user', {
+            method: 'PATCH',
+            credentials: 'include',
+            body: data,
+            headers: {
+                "Content-type": "multipart/form-data"
+            }
+        });
+        const resJson = response.json();
+    };
     return(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Dashboard_sidebar__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
         active: "Config",
         color: "blue",
@@ -656,7 +671,7 @@ function configuracion() {
                             children: [
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
                                     className: "w-52 h-52 rounded-full",
-                                    src: "/google.png"
+                                    src: data1.user_image ? data1.user_image : '/user.png'
                                 }),
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                     className: " self-end cursor-pointer",
@@ -681,24 +696,38 @@ function configuracion() {
                                             })
                                         ]
                                     })
+                                }),
+                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
+                                    onSubmit: handleSubmit,
+                                    children: [
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                            type: "file",
+                                            name: "user_image"
+                                        }),
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                                            className: "bg-gray-900 text-white p-3",
+                                            type: "submit",
+                                            children: "Agregar"
+                                        })
+                                    ]
                                 })
                             ]
                         }),
                         /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                             className: "text-3xl font-bold text-black dark:text-white text-center uppercase",
                             children: [
-                                data.firstName,
+                                data1.firstName,
                                 " ",
-                                data.lastName
+                                data1.lastName
                             ]
                         })
                     ]
                 }),
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Dashboard_Configuracion_configuracionGeneral__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
-                    data: data
+                    data: data1
                 }),
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Dashboard_Configuracion_configuracionEmpresa__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
-                    data: data
+                    data: data1
                 })
             ]
         })
