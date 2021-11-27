@@ -31,17 +31,17 @@ export default function configuracion() {
         e.preventDefault();
 
         console.log({ e })
+        console.log({ AA: e.file })
+
         const formData = new FormData(e);
 
 
-        const data = new FormData()
-
-        data.append('user_image', e.file)
+        formData.append('user_image', e.file)
 
         const response = await fetch('https://api.abako.xyz/api/user', {
             method: 'PATCH',
             credentials: 'include',
-            body: data,
+            body: formData,
             headers: { 'Content-Type': 'multipart/form-data' }
 
         })
