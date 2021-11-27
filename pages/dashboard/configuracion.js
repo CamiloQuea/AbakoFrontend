@@ -30,23 +30,21 @@ export default function configuracion() {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        // console.log({ e })
-        // console.log({ AA: e.file })
+        const formData = new FormData();
 
-        // const formData = new FormData(e);
+        for (let [key, value] of Object.entries(state)) {
+            formData.append(key, value);
+        }
 
+        const response = await fetch('https://api.abako.xyz/api/user', {
+            method: 'PATCH',
+            credentials: 'include',
+            body: formData,
+            headers: { 'Content-Type': 'multipart/form-data' }
 
-        // formData.append('user_image', e.file)
+        })
 
-        // const response = await fetch('https://api.abako.xyz/api/user', {
-        //     method: 'PATCH',
-        //     credentials: 'include',
-        //     body: formData,
-        //     headers: { 'Content-Type': 'multipart/form-data' }
-
-        // })
-
-        // const resJson = response.json();
+        const resJson = response.json();
 
 
 
