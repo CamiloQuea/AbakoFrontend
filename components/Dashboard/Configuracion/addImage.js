@@ -56,7 +56,7 @@ export default function addImage(props) {
                               text-gray-600 dark:text-white outline-none dark:bg-pruebaA3"/>
                     <div className="mt-3">
                         <button className="bg-gray-900 text-white p-3" type="submit" >Agregar</button>
-                        <button className="py-3 px-8 bg-red-400 text-white font-bold" onClick={handleModal} >Cerrar</button>
+                        <button className="py-3 px-8 bg-red-400 text-white font-bold pl-2" onClick={handleModal} >Cerrar</button>
 
                     </div>
 
