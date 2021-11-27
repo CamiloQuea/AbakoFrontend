@@ -36,7 +36,8 @@ export default function addImage(props) {
 
         const resJson = response.json();
 
-
+        handleModal();
+        mutate('https://api.abako.xyz/api/user');
 
     }
 

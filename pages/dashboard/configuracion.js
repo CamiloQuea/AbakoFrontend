@@ -13,7 +13,7 @@ import AddImage from '../../components/Dashboard/Configuracion/addImage';
 
 export default function configuracion() {
 
-    
+
     const [modal, setModal] = useState("");
 
     const handleModal = () => {
@@ -40,7 +40,7 @@ export default function configuracion() {
     if (data.rol === 'employee') router.push('/dashboard/productos')
 
 
-    
+
 
     return (
         <Sidebar active="Config" color='blue'>
@@ -59,7 +59,7 @@ export default function configuracion() {
                             </svg>
                             {modal == "" ? (<></>) : (<AddImage handleModal={handleModal} />)}
                         </div>
-                        
+
                     </div>
                     <div className="text-3xl font-bold text-black dark:text-white text-center uppercase">{data.firstName} {data.lastName}</div>
                 </div>
