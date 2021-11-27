@@ -54,7 +54,7 @@ export default function newTienda(props) {
 
         const res = await fetch('https://api.abako.xyz/api/user/shop', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(shopState),
             credentials:'include'
         })

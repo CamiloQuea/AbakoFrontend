@@ -14,7 +14,8 @@ export default function ListEmpleado({ shop_id }) {
     const [todos, setTodos] = useState([]);
 
     const getData = async () => {
-        const response = await fetch(`https://api.abako.xyzm/api/user/shop/${shop_id}/employee`, {
+        const response = await fetch(`https://api.abako.xyz/api/user/shop/${shop_id}/employee`, {
+
             credentials: 'include'
         }
         );

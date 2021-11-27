@@ -28,7 +28,7 @@ export default function newMovimiento({ handleModal, shop_id }) {
 
         const res = await fetch(`https://api.abako.xyz/api/user/shop/${shop_id}/movement`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(employeeState),
             credentials: 'include'
         })

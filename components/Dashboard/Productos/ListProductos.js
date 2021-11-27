@@ -20,6 +20,7 @@ export default function ListProductos({ shop_id }) {
 
     const getData = async () => {
         const response = await fetch(!shop_id ? `https://api.abako.xyz/api/user/product` : `https://api.abako.xyz/api/user/shop/${shop_id}/product`, {
+
             credentials: 'include'
         }
         );
@@ -72,6 +73,11 @@ export default function ListProductos({ shop_id }) {
                     Header: 'Stock',
                     accessor: 'stock',
                 },
+                {
+                    Header:'Id',
+                    accessor:'id'
+                    
+                }
             ],
             []
         )
@@ -131,7 +137,7 @@ export default function ListProductos({ shop_id }) {
 
     const productsData = useMemo(() => [...todos], [todos]);
 
-    const intance = useTable({ columns, data: productsData, initialState: { pageIndex: 0 } }, useGlobalFilter, tableHooks, useSortBy, usePagination)
+    const intance = useTable({ columns, data: productsData, initialState: { pageIndex: 0, hiddenColumns:['id'] } }, useGlobalFilter, shop_id?tableHooks:'', useSortBy, usePagination)
     const {
         getTableProps,
         getTableBodyProps,
@@ -156,9 +162,8 @@ export default function ListProductos({ shop_id }) {
 
     useEffect(() => {
         getData();
-    }, [modal])
-
-    
+    }, [modal,modalEdit])
+ 
 
     return (<>
 
@@ -180,7 +185,7 @@ export default function ListProductos({ shop_id }) {
             /></div></div>}
             
             {modal == "" ? (<></>) : (<NewProducto shop_id={shop_id} handleModal={handleModal} />)}
-            {modalEdit==""?(<></>):(<EditProductos editar={editar} handleModal={handleModal}/>)}
+            {modalEdit==""?(<></>):(<EditProductos editar={editar} handleModal={handleModal} shop_id={shop_id}/>)}
 
             <div className='overflow-auto'>
                 <table {...getTableProps()} className="items-center bg-transparent w-full border-collapse text-center">

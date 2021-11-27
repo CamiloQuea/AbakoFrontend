@@ -44,7 +44,12 @@ function LoginForm() {
         
        
         if (resJson.error == false) {
+            const accessToken = await resJson.data.accessToken; // capturo el token que se envia desde el API
+            const refreshToken = await resJson.data.refreshToken; // capturo el token que se envia desde el API
             
+            cookie.set("accessToken", accessToken, { expires: 5 / 24 }); // Seteo del cookie hacia la pagina
+            cookie.set("refreshToken", refreshToken, { expires: 5 / 24 }); // Seteo del cookie hacia la pagina
+    
             router.push('/dashboard')
             setForm({ state: 'success', message: resJson.message })
             

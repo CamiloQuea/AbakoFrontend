@@ -30,7 +30,7 @@ export default function confEmpresaForm(props) {
 
         const res = await fetch('https://api.abako.xyz/api/user/business', {
             method: 'PATCH',
-            headers: { 'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(state),
             credentials:'include'
         })

@@ -13,7 +13,6 @@ export default function ListMovimientos({ shop_id }) {
 
     const getData = async () => {
         const response = await fetch(!shop_id ? `https://api.abako.xyz/api/user/movement` : `https://api.abako.xyz/api/user/shop/${shop_id}/movement`, {
-
             credentials: 'include'
         }
         );
