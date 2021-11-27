@@ -30,23 +30,23 @@ export default function configuracion() {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        console.log({ e })
-        console.log({ AA: e.file })
+        // console.log({ e })
+        // console.log({ AA: e.file })
 
-        const formData = new FormData(e);
+        // const formData = new FormData(e);
 
 
-        formData.append('user_image', e.file)
+        // formData.append('user_image', e.file)
 
-        const response = await fetch('https://api.abako.xyz/api/user', {
-            method: 'PATCH',
-            credentials: 'include',
-            body: formData,
-            headers: { 'Content-Type': 'multipart/form-data' }
+        // const response = await fetch('https://api.abako.xyz/api/user', {
+        //     method: 'PATCH',
+        //     credentials: 'include',
+        //     body: formData,
+        //     headers: { 'Content-Type': 'multipart/form-data' }
 
-        })
+        // })
 
-        const resJson = response.json();
+        // const resJson = response.json();
 
 
 
@@ -67,7 +67,7 @@ export default function configuracion() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                         </div>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} method="PATCH" action="https://api.abako.xyz/api/user">
 
                             <input type="file" name="user_image" />
                             <button className="bg-gray-900 text-white p-3" type="submit" >Agregar</button>
