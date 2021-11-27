@@ -26,15 +26,15 @@ export default function InicioProductsMenorStock() {
 
 
             data.map((producto, i) =>
-                i < 5 ?
+                i < 5 && producto.stock < 5 ?
                     (
 
 
-                        <div className="text-white p-4 border rounded-xl border-prueba grid grid-cols-3 gap-3 overflow-clip overflow-hidden" key={producto.id}>
+                        <div className="p-4 border rounded-xl border-prueba grid grid-cols-3 gap-3 overflow-clip overflow-hidden" key={producto.id}>
                             <span className="absolute text-sm">
                                 STOCK
                             </span>
-                            <div className="uppercase m-auto text-7xl">
+                            <div className="uppercase m-auto text-5xl">
 
 
 

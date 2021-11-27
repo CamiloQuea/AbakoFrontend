@@ -68,7 +68,7 @@ export default function inicio() {
                                 </svg>
 
                             </div>
-                            <span className="uppercase font-sans font-bold">Estadistica</span>
+                            <span className="uppercase font-sans font-bold">Bajo stock</span>
                         </div>
 
 
