@@ -8,7 +8,7 @@ export default function addImage(props) {
     const [state, setState] = useState({
         user_image: null
     });
-    
+
     function handleChange(e) {
 
         setState({ ...state, [e.target.name]: e.target.files[0] });
@@ -46,7 +46,7 @@ export default function addImage(props) {
 
     return (<>
         <div className="modal open py-32 px-10 min-h-screen">
-            <div className="bg-white dark:bg-gray-100 rounded-3xl p-10 md:w-3/4 lg:w-1/2 mx-auto">
+            <div className="bg-white dark:bg-pruebaA3 rounded-3xl p-10 md:w-3/4 lg:w-1/2 mx-auto">
                 <h2 className="dark:text-white font-bold text-gray-600 ">Nueva Tienda</h2>
 
                 <form onSubmit={handleSubmit} method="PATCH" action="https://api.abako.xyz/api/user">
