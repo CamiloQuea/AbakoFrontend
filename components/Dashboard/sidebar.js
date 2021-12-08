@@ -167,7 +167,7 @@ export default function sidebar({ children, active, color }) {
                     <div>
 
                         {/*Btn-DarkMode */}
-                        <button className="absolute right-0"
+                        <button className="absolute -right-1 mt-2"
                             type="button"
                             aria-label="Toggle Dark Mode"
                             onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}>
