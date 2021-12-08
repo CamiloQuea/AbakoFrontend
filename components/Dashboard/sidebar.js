@@ -49,12 +49,9 @@ export default function sidebar({ children, active, color }) {
                     </button>
 
                     {/*Image-Business */}
-                    <div className="rounded-full flex items-center w-3/4 justify-center bg-gray-300" style={data.user_image ? `background-image: url(${data.user_image})` : `background-image: url('/user.png')`}>
+                    <div className="rounded-full flex items-center w-3/4 justify-center bg-gray-300" >
 
-
-
-                        {/* <img className="block w-14 max-h-16 rounded-full" src={data.user_image ? data.user_image : '/user.png'} /> */}
-
+                        <img className="block w-14 max-h-16 rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
 
                     </div>
                 </div>
