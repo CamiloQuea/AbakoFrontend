@@ -27,7 +27,7 @@ export default function sidebar({ children, active, color }) {
 
     return (
 
-            <>
+        <>
             <Head>
                 <title>Dashboard</title>
             </Head>
@@ -38,79 +38,113 @@ export default function sidebar({ children, active, color }) {
 
             <div className="flex md:flex-row flex-col">
 
-                <div className="sidebar-abako scroll">
+                <div className="border bg-gray-100 flex pl-2 py-2
+            md:w-20 md:flex-col md:h-full md:overflow-y-scroll md:overflow-x-hidden
+            w-full flex-row bottom-0 h-12 fixed
+            dark:bg-pruebaA5 dark:border-prueba6">
 
-                    {/*Btn-DarkMode */}
-                    <button className="btn-darkmode"
-                        type="button"
-                        aria-label="Toggle Dark Mode"
-                        onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}>
-
-                        {mounted && (resolvedTheme === 'dark' ? (<Dark />) : (<Light />))}
-                    </button>
-
-                    {/*Image-Business */}
-                    <div className="image-business-sidebar">
+                    <div className="hidden md:block">
 
 
+                        {/*Btn-DarkMode */}
+                        <button className="absolute right-0 "
+                            type="button"
+                            aria-label="Toggle Dark Mode"
+                            onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}>
 
-                        <img className="relative left-1/2 transform -translate-x-1/2 block w-14 max-h-16 rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
+                            {mounted && (resolvedTheme === 'dark' ? (<Dark />) : (<Light />))}
+                        </button>
 
+                        {/*Image-Business */}
+                        <div className="rounded-full bg-gray-900 mt-7">
+
+
+
+                            <img className="object-cover h-16 w-full rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
+
+
+                        </div>
 
                     </div>
 
-
                     {/*option-menu */}
-                    <div className="flex md:flex-row justify-center flex-col">
+                    <div className="md:space-y-20 md:my-10 w-full flex-1">
 
-                        <ul className="my-10 flex flex-row md:flex-col w-screen">
+                        <ul className="flex flex-row space-x-2 md:flex-col md:space-x-0 md:space-y-10">
 
                             {data.rol === 'employee'
                                 ? <></>
                                 : <li
-                                    className={`list-option-sidebar efectohover hover:border-red-500
-                                            ${activeOption == 'Inicio'
-                                            ? ('border-red-500 active-option-sidebar')
-                                            : ('border-transparent border-2')}`}
 
+                                    className={`flex flex-auto justify-center align-middle`}
                                     onClick={() => { router.push('/dashboard') }}
                                 >
-                                    <IconInicio />
+                                    <div
+                                        className={`efectohover hover:border-red-500 p-1 cursor-pointer
+                                    ${activeOption == 'Inicio'
+                                                ? ('border-red-500 active-option-sidebar')
+                                                : ('border-transparent border-2')}`}
+                                    >
+
+
+                                        <IconInicio />
+
+                                    </div>
+
+
                                 </li>
                             }
 
                             <li
-                                className={`list-option-sidebar efectohover hover:border-yellow-400
-                                 ${activeOption == 'Productos'
-                                        ? ('border-yellow-400 active-option-sidebar')
-                                        : ('border-transparent border-2')}`}
+                                className={`flex flex-auto justify-center align-middle`}
                                 onClick={() => { router.push('/dashboard/productos') }}
                             >
-                                <IconProductos />
+                                <div className={`efectohover hover:border-yellow-400 p-1 cursor-pointer
+                                 ${activeOption == 'Productos'
+                                        ? ('border-yellow-400 active-option-sidebar')
+                                        : ('border-transparent border-2')}`}>
+
+
+                                    <IconProductos />
+                                </div>
                             </li>
 
 
                             {data.rol === 'employee'
                                 ? <></>
-                                : <li className={`list-option-sidebar efectohover hover:border-green-700 
-                                        ${activeOption == 'Tiendas'
-                                        ? ('border-green-800 active-option-sidebar')
-                                        : ('border-transparent border-2')}`}
+                                : <li
+                                    className={`flex flex-auto justify-center align-middle`}
                                     onClick={() => { router.push('/dashboard/tiendas') }}
                                 >
-                                    <IconTiendas />
+
+                                    <div className={`efectohover hover:border-green-700 p-1 cursor-pointer 
+                                        ${activeOption == 'Tiendas'
+                                            ? ('border-green-800 active-option-sidebar')
+                                            : ('border-transparent border-2')}`}>
+
+                                        <IconTiendas />
+                                    </div>
+
+
                                 </li>
                             }
 
                             {data.rol === 'employee'
                                 ? <></>
-                                : <li className={`list-option-sidebar efectohover hover:border-blue-700 
-                                        ${activeOption == 'Config'
-                                        ? ('border-blue-700 active-option-sidebar')
-                                        : ('border-transparent border-2')}`}
+                                : <li
+                                    className={`flex flex-auto justify-center align-middle`}
                                     onClick={() => { router.push('/dashboard/configuracion') }}
                                 >
-                                    <IconConfiguracion />
+
+                                    <div className={`efectohover hover:border-blue-700 p-1 cursor-pointer 
+                                        ${activeOption == 'Config'
+                                            ? ('border-blue-700 active-option-sidebar')
+                                            : ('border-transparent border-2')}`}>
+
+                                        <IconConfiguracion />
+                                    </div>
+
+
                                 </li>
                             }
 
@@ -120,7 +154,7 @@ export default function sidebar({ children, active, color }) {
 
                     {/*Btn-Logout */}
                     <div
-                        className="btn-logout"
+                        className="md:flex hidden justify-center align-middle mb-5 cursor-pointer "
                         onClick={async () => { await removeCookie(); router.push("/login") }}>
                         <div>
                             <IconLogout />

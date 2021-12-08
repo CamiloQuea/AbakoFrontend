@@ -1,12 +1,14 @@
 import { useTheme } from "next-themes";
+import router from "next/router";
 import { useEffect } from "react";
 import { useState } from "react";
 import Navbar from "../components/Dashboard/navbar";
+import { Dark } from "../lib/icons/DarkLight";
 import { IconInicio, IconLogout } from "../lib/icons/OptionsIcons";
 
 export default function sidebar({ children, active, color }) {
 
-
+    const [activeOption, setActiveOption] = useState(active);
     //TooltipFunction();
 
     return (
@@ -141,29 +143,29 @@ export default function sidebar({ children, active, color }) {
             <div className="flex md:flex-row flex-col gap-5">
 
                 <div className="
-            border bg-gray-100 flex pl-2 py-5
+            border bg-gray-100 flex pl-2 py-2
             md:w-20 md:flex-col md:h-full md:overflow-y-scroll md:overflow-x-hidden
             w-full flex-row bottom-0 h-12 fixed
             dark:bg-pruebaA5 dark:border-prueba6
             ">
 
-                    <div>
+                    <div className="hidden md:block">
 
                         {/*Btn-DarkMode */}
-                        <button className="absolute right-0 mt-2"
+                        <button className="absolute right-0 "
                             type="button"
                             aria-label="Toggle Dark Mode"
                         >
-
+                            <Dark />
 
                         </button>
 
                         {/*Image-Business */}
-                        <div className="rounded-full bg-gray-900">
+                        <div className="rounded-full bg-gray-900 mt-7">
 
 
 
-                            <img className="object-cover h-16 w-full rounded-full" src={'/LOGOUTP.png'} />
+                            <img className="object-cover h-16 w-full rounded-full" src={'/taa.png'} />
 
 
                         </div>
@@ -171,31 +173,47 @@ export default function sidebar({ children, active, color }) {
                     </div>
 
                     {/*option-menu */}
-                    <div className="flex-1 flex flex-col space-y-5 my-5">
+                    <div className="md:space-y-20 md:my-10 w-full flex-1">
 
-                        <ul className="flex justify-center">
+                        <ul className="flex flex-row space-x-2 md:flex-col md:space-x-0 md:space-y-10 ">
 
                             <li
 
-                                
+                                className={`flex flex-auto justify-center align-middle`}
+
                                 onClick={() => { router.push('/dashboard') }}
                             >
-                                <IconInicio />
+                                <div
+                                    className={`efectohover hover:border-red-500 p-1 cursor-pointer 
+                                ${activeOption == 'Productos'
+                                            ? ('border-red-500 active-option-sidebar')
+                                            : ('border-transparent border-2')}`}
+                                >
+                                    <IconInicio />
+                                </div>
+
                             </li>
 
 
 
 
-                        </ul>
 
-                        <ul className="flex justify-center">
 
                             <li
 
-
+                                className={`flex flex-auto justify-center align-middle `}
                                 onClick={() => { router.push('/dashboard') }}
                             >
-                                <IconInicio />
+                                <div
+                                    className={`efectohover hover:border-red-500 p-1 cursor-pointer
+                                ${activeOption == 'Productos'
+                                            ? ('border-red-500 active-option-sidebar')
+                                            : ('border-transparent border-2')}`}
+                                >
+
+
+                                    <IconInicio />
+                                </div>
                             </li>
 
 
@@ -207,11 +225,13 @@ export default function sidebar({ children, active, color }) {
 
                     {/*Btn-Logout */}
                     <div
-                        className="flex justify-center"
+                        className="md:flex hidden justify-center align-middle mb-5 cursor-pointer "
                         onClick={async () => { await removeCookie(); router.push("/login") }}>
+                        <div>
 
-                        <IconLogout />
+                            <IconLogout />
 
+                        </div>
                     </div>
                 </div>
 
