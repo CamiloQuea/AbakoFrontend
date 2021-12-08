@@ -176,7 +176,7 @@ export default function sidebar({ children, active, color }) {
                         </button>
 
                         {/*Image-Business */}
-                        <div className="rounded-full mt-5 h-16 my-1">
+                        <div className="rounded-full mt-5 h-20 my-1">
 
 
 
