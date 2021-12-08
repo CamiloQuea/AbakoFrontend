@@ -167,7 +167,7 @@ export default function sidebar({ children, active, color }) {
                     <div>
 
                         {/*Btn-DarkMode */}
-                        <button className="btn-darkmode"
+                        <button className=""
                             type="button"
                             aria-label="Toggle Dark Mode"
                             onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}>
@@ -176,7 +176,7 @@ export default function sidebar({ children, active, color }) {
                         </button>
 
                         {/*Image-Business */}
-                        <div className="image-business-sidebar">
+                        <div className="">
 
 
 
