@@ -176,7 +176,7 @@ export default function sidebar({ children, active, color }) {
                         </button>
 
                         {/*Image-Business */}
-                        <div className="">
+                        <div className="rounded-full flex items-center justify-center">
 
 
 
