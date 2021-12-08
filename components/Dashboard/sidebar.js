@@ -158,7 +158,7 @@ export default function sidebar({ children, active, color }) {
             <div className="flex md:flex-row flex-col">
 
                 <div className="
-                border bg-gray-100 
+                border bg-gray-100 flex
                 md:w-20 md:flex-col md:h-full md:overflow-y-scroll md:overflow-x-hidden
                 w-full flex-row bottom-0 h-12 fixed
                 dark:bg-pruebaA5 dark:border-prueba6
@@ -195,7 +195,7 @@ export default function sidebar({ children, active, color }) {
                             {data.rol === 'employee'
                                 ? <></>
                                 : <li
-                                    
+
 
                                     onClick={() => { router.push('/dashboard') }}
                                 >
@@ -203,7 +203,7 @@ export default function sidebar({ children, active, color }) {
                                 </li>
                             }
 
-                            
+
 
                         </ul>
 
@@ -213,9 +213,9 @@ export default function sidebar({ children, active, color }) {
                     <div
                         className=""
                         onClick={async () => { await removeCookie(); router.push("/login") }}>
-                        <div>
-                            <IconLogout />
-                        </div>
+
+                        <IconLogout />
+
                     </div>
                 </div>
 
