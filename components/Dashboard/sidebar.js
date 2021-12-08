@@ -195,10 +195,7 @@ export default function sidebar({ children, active, color }) {
                             {data.rol === 'employee'
                                 ? <></>
                                 : <li
-                                    className={`list-option-sidebar efectohover hover:border-red-500
-                                        ${activeOption == 'Inicio'
-                                            ? ('border-red-500 active-option-sidebar')
-                                            : ('border-transparent border-2')}`}
+                                    className={}
 
                                     onClick={() => { router.push('/dashboard') }}
                                 >
@@ -206,40 +203,7 @@ export default function sidebar({ children, active, color }) {
                                 </li>
                             }
 
-                            <li
-                                className={`list-option-sidebar efectohover hover:border-yellow-400
-                             ${activeOption == 'Productos'
-                                        ? ('border-yellow-400 active-option-sidebar')
-                                        : ('border-transparent border-2')}`}
-                                onClick={() => { router.push('/dashboard/productos') }}
-                            >
-                                <IconProductos />
-                            </li>
-
-
-                            {data.rol === 'employee'
-                                ? <></>
-                                : <li className={`list-option-sidebar efectohover hover:border-green-700 
-                                    ${activeOption == 'Tiendas'
-                                        ? ('border-green-800 active-option-sidebar')
-                                        : ('border-transparent border-2')}`}
-                                    onClick={() => { router.push('/dashboard/tiendas') }}
-                                >
-                                    <IconTiendas />
-                                </li>
-                            }
-
-                            {data.rol === 'employee'
-                                ? <></>
-                                : <li className={`list-option-sidebar efectohover hover:border-blue-700 
-                                    ${activeOption == 'Config'
-                                        ? ('border-blue-700 active-option-sidebar')
-                                        : ('border-transparent border-2')}`}
-                                    onClick={() => { router.push('/dashboard/configuracion') }}
-                                >
-                                    <IconConfiguracion />
-                                </li>
-                            }
+                            
 
                         </ul>
 
@@ -247,7 +211,7 @@ export default function sidebar({ children, active, color }) {
 
                     {/*Btn-Logout */}
                     <div
-                        className="btn-logout"
+                        className=""
                         onClick={async () => { await removeCookie(); router.push("/login") }}>
                         <div>
                             <IconLogout />
