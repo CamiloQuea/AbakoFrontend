@@ -50,7 +50,16 @@ export default function configuracion() {
                 <div className="xl:col-span-2 justify-center items-center justify-self-center mb-8">
                     <div className="justify-center flex">
 
-                        <img className="w-52 h-52 rounded-full " src={data.user_image ? data.user_image : '/user.png'} />
+                        {/* <div className="rounded-full bg-gray-900 mt-7">
+
+
+
+                            <img className="object-cover h-16 w-full rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
+
+
+                        </div> */}
+
+                        <img className="object-cover h-52 w-full rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
                         <div className=" self-end cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" onClick={viewModal}>
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
