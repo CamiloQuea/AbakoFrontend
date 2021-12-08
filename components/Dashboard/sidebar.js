@@ -195,7 +195,7 @@ export default function sidebar({ children, active, color }) {
                             {data.rol === 'employee'
                                 ? <></>
                                 : <li
-                                    className={}
+                                    
 
                                     onClick={() => { router.push('/dashboard') }}
                                 >
