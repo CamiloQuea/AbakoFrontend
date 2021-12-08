@@ -180,7 +180,7 @@ export default function sidebar({ children, active, color }) {
 
 
 
-                            <img className="relative left-1/2 transform -translate-x-1/2 block w-14 max-h-16 rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
+                            <img className="object-cover h-24 w-full" src={data.user_image ? data.user_image : '/user.png'} />
 
 
                         </div>
