@@ -176,11 +176,11 @@ export default function sidebar({ children, active, color }) {
                         </button>
 
                         {/*Image-Business */}
-                        <div className="rounded-full mt-5">
+                        <div className="rounded-full mt-5 h-16">
 
 
 
-                            <img className="object-cover h-20 w-full rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
+                            <img className="object-cover h-16 w-full rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
 
 
                         </div>
