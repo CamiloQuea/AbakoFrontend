@@ -37,24 +37,26 @@ export default function sidebar({ children, active, color }) {
         <div className="flex md:flex-row flex-col">
 
             <div className="sidebar-abako scroll">
+                <div className="grid justify-items-center">
 
-                {/*Btn-DarkMode */}
-                <button className="btn-darkmode"
-                    type="button"
-                    aria-label="Toggle Dark Mode"
-                    onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}>
+                    {/*Btn-DarkMode */}
+                    <button className="btn-darkmode"
+                        type="button"
+                        aria-label="Toggle Dark Mode"
+                        onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}>
 
-                    {mounted && (resolvedTheme === 'dark' ? (<Dark />) : (<Light />))}
-                </button>
+                        {mounted && (resolvedTheme === 'dark' ? (<Dark />) : (<Light />))}
+                    </button>
 
-                {/*Image-Business */}
-                <div className="image-business-sidebar">
-
-
-
-                    <img className="relative left-1/2 transform -translate-x-1/2 block w-14 max-h-16 rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
+                    {/*Image-Business */}
+                    <div className=" h-10 w-10 md:block hidden">
 
 
+
+                        <img className="block w-14 max-h-16 rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
+
+
+                    </div>
                 </div>
 
 
