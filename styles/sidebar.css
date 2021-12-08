@@ -18,7 +18,7 @@
 }
 
 .image-business-sidebar {
-  @apply /*General*/ mt-8
+  @apply /*General*/ mt-8 h-10 w-10
     /*Desktop*/ md:block
     /*Responsive*/ hidden
     /*Dark Mode*/;

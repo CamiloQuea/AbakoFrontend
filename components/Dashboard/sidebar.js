@@ -50,10 +50,10 @@ export default function sidebar({ children, active, color }) {
                 {/*Image-Business */}
                 <div className="image-business-sidebar">
 
-                    <div className="mb-2">
 
-                        <img className="relative left-1/2 transform -translate-x-1/2 block w-14 max-h-16 rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
-                    </div>
+
+                    <img className="relative left-1/2 transform -translate-x-1/2 block w-14 max-h-16 rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
+
 
                 </div>
 
