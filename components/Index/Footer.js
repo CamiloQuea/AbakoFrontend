@@ -85,10 +85,7 @@ export const Footer = () => {
                         </div>
                         <div className="w-full flex justify-center items-center col-span-full lg:col-auto my-4 ">
 
-                            <form className="flex bg-white rounded-l">
-                                <input className="p-2 rounded-l-lg text-gray-800 border-gray-200 bg-white w-3/4" placeholder="Correo" />
-                                <button className="px-3 bg-yellow-400  text-gray-800 text-xs lg:text-base font-bold uppercase border-yellow-500">Subscribirte</button>
-                            </form>
+                            
 
                         </div>
                     </div>

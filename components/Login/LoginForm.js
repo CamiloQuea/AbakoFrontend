@@ -72,19 +72,7 @@ function LoginForm() {
                     </svg>
                     <input name="password" onChange={handleChange} className="text-center text-white inline content-center text-base px-4 py-2 bg-transparent focus:outline-none focus:border-gray-900 placeholder-gray-300" type="password" placeholder="Ingresa tu contraseña" />
                 </div>
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center pt-3">
-                        <input id="remember_me" name="remember_me" type="checkbox" className="h-4 w-4 bg-gray-300 focus:ring-gray-400 border-gray-300 rounded checked:bg-gray-700 text-gray-700" />
-                        <label htmlFor="remember_me" className="ml-2 block text-sm text-white pr-10">
-                            Recuérdeme
-                        </label>
-                    </div>
-                    <div className="text-sm pt-3">
-                        <a href="#" className="text-white hover:text-gray-300">
-                            ¿Olvidaste tu contraseña?
-                        </a>
-                    </div>
-                </div>
+                
                 <div>
                     <button type="submit" className="w-full flex justify-center bg-gray-300  hover:bg-gray-700 hover:text-gray-200 text-gray-700 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-300">
                     {form.state=='loading'?(<LoadingSpinner/>):'Ingresar'}
