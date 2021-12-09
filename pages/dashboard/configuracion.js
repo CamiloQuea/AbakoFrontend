@@ -28,7 +28,7 @@ export default function configuracion() {
 
         return fetch(url, {
 
-            credentials: 'same-origin'
+            credentials: 'include'
         })
             .then(res => res.json())
             .then(json => json.data);

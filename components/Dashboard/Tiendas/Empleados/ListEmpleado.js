@@ -16,7 +16,7 @@ export default function ListEmpleado({ shop_id }) {
     const getData = async () => {
         const response = await fetch(`https://api.abako.xyz/api/user/shop/${shop_id}/employee`, {
 
-            credentials: 'same-origin'
+            credentials: 'include'
         }
         );
         const data = await response.json();

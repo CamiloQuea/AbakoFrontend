@@ -30,7 +30,7 @@ export default function newMovimiento({ handleModal, shop_id }) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(employeeState),
-            credentials: 'same-origin'
+            credentials: 'include'
         })
         
         mutate(`https://api.abako.xyz/api/user/shop/${shop_id}/movement`)

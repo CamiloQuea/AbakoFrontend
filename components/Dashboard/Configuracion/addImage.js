@@ -28,7 +28,7 @@ export default function addImage(props) {
 
         const response = await fetch('https://api.abako.xyz/api/user', {
             method: 'PATCH',
-            credentials: 'same-origin',
+            credentials: 'include',
             body: formData
 
         })

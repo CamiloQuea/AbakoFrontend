@@ -55,7 +55,7 @@ export default function newTienda(props) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(shopState),
-            credentials:'same-origin'
+            credentials:'include'
         })
         
         mutate('https://api.abako.xyz/api/user/shop')

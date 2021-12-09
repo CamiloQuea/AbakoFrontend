@@ -32,7 +32,7 @@ export default function confGeneralForm(props) {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(state),
-            credentials:'same-origin'
+            credentials:'include'
 
         })
 

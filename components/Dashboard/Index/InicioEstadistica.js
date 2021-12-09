@@ -10,7 +10,7 @@ export default function InicioEstadistica() {
 
     const getData = async () => {
         const response = await fetch(`https://api.abako.xyz/api/user/movement`, {
-            credentials: 'same-origin'
+            credentials: 'include'
         });
 
         const data = await response.json();

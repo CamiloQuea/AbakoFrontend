@@ -35,7 +35,7 @@ function LoginForm() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(state),
-            credentials:'same-origin'
+            credentials:'include'
         })
         
         const resJson = await res.json() // capturo los datos que se envia desde el API en formato Json
