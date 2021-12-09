@@ -21,7 +21,7 @@ export default function ListProductos({ shop_id }) {
     const getData = async () => {
         const response = await fetch(!shop_id ? `https://api.abako.xyz/api/user/product` : `https://api.abako.xyz/api/user/shop/${shop_id}/product`, {
 
-            credentials: 'include'
+            credentials: 'same-origin'
         }
         );
         const data = await response.json();

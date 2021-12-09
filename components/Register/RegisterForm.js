@@ -46,7 +46,7 @@ function RegisterForm() {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(state),
-                credentials:'include'
+                credentials:'same-origin'
             })
 
             const { data, error } = await res.json()

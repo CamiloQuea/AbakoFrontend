@@ -35,7 +35,7 @@ export default function EditProductos({ editar, handleModal,shop_id }) {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(state),
-            credentials: 'include'
+            credentials: 'same-origin'
         })
 
         mutate(`https://api.abako.xyz/api/user/shop/${shop_id}/product`)

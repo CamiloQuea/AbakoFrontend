@@ -18,7 +18,7 @@ export default withRouter( function confempresa({router}) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(state),
-            credentials:'include'
+            credentials:'same-origin'
         })
 
         const resJson = await res.json() // capturo los datos que se envia desde el API en formato Json

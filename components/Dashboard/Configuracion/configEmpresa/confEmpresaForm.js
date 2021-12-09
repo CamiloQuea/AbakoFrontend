@@ -32,7 +32,7 @@ export default function confEmpresaForm(props) {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(state),
-            credentials:'include'
+            credentials:'same-origin'
         })
 
         const respuestaJson=await res.json();
