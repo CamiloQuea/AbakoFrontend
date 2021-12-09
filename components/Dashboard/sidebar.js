@@ -41,7 +41,7 @@ export default function sidebar({ children, active, color }) {
                 <div className="border bg-gray-100 flex pl-2 py-2
             md:w-20 md:flex-col md:h-full md:overflow-y-scroll md:overflow-x-hidden
             w-full flex-row bottom-0 h-12 fixed
-            dark:bg-pruebaA5 dark:border-prueba6">
+            dark:bg-pruebaA5 dark:border-prueba6 z-50">
 
                     <div className="hidden md:block">
 
