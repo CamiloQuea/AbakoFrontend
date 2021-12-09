@@ -56,7 +56,7 @@ export default function sidebar({ children, active, color }) {
                         </button>
 
                         {/*Image-Business */}
-                        <div className="rounded-full bg-gray-900 mt-7">
+                        <div className="rounded-full  mt-7">
 
 
 
