@@ -19,7 +19,7 @@ export default function addImage(props) {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        console.log(state)
+        
 
         const formData = new FormData();
 

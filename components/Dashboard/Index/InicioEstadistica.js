@@ -21,7 +21,7 @@ export default function InicioEstadistica() {
 
         data.data.forEach(mov => {
 
-            console.log(formatDate(mov.createdAt));
+            
 
         })
 

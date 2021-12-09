@@ -88,21 +88,21 @@ export default function InicioProductsMasVendidos() {
 
             if (product.id === movimiento.product.id) {
 
-                console.log('YEYY');
+                
 
                 exists = true;
                 salidaProducts30days[j].quantity = salidaProducts30days[j].quantity + movimiento.quantity;
 
             } else {
 
-                console.log('NO EXISTE')
+                
             }
 
         })
 
         if (!exists) {
 
-            console.log('YEP')
+            
 
             salidaProducts30days.push({
 
@@ -118,7 +118,7 @@ export default function InicioProductsMasVendidos() {
 
 
 
-    console.log({ salidaProducts30days })
+    
 
 
 
