@@ -15,54 +15,65 @@ export default function InicioProductsMenorStock() {
         return a.stock - b.stock;
     });
 
-    console.log(data)
+    
 
 
 
 
-    return (<div className="m-3 h-100 flex-grow grid grid-rows-5  justify-around gap-3">
+    return (<div className="flex flex-col justify-start flex-1 my-2 space-y-1 mx-2">
 
         {
 
 
             data.map((producto, i) =>
-                i < 5 && producto.stock < 5 ?
+                i < 5 ?
                     (
 
 
-                        <div className="p-4 border rounded-xl border-prueba grid grid-cols-3 gap-3 overflow-clip overflow-hidden" key={producto.id}>
-                            <span className="absolute text-sm">
-                                STOCK
-                            </span>
-                            <div className="uppercase m-auto text-5xl">
+                        <div className="px-5 py-2 border dark:border-prueba rounded-xl overflow-visible text-center" key={producto.id}>
+                            <p className="">
+                                <span className="text-4xl">
 
+                                    {producto.stock}
 
+                                </span>
+                                <span className="font-thin">
+                                    /stock
+                                </span>
+                            </p>
 
-                                {producto.stock}
+                            <p className="text-xs" >
 
-                            </div>
+                                <span className="">
+                                    Tienda:
+                                </span>
 
-                            <div className="uppercase m-auto" >
+                                <span className="">
 
-                                {producto.shop.name}
+                                    {producto.shop.name}
 
-                            </div>
+                                </span>
 
-                            <div className="uppercase m-auto font-extralight truncate w-min text-center" >
+                            </p>
 
-                                <p >
+                            <p className="truncate" >
+
+                                <span alt={producto.type}>
+
                                     {producto.type}
-                                </p>
+                                </span>
+                                |
+                                <span alt={producto.brand}>
 
-                                <p >
                                     {producto.brand}
-                                </p>
+                                </span>
+                                |
+                                <span alt={producto.model}>
 
-                                <p >
                                     {producto.model}
-                                </p>
+                                </span>
 
-                            </div>
+                            </p>
 
 
                         </div>

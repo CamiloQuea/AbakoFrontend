@@ -49,16 +49,6 @@ export default function configuracion() {
             <div className="grid xl:grid-cols-2 xl:gap-4 gap-10 grid-cols-1 mx-8 mt-6 xl:mb-0 mb-20">
                 <div className="xl:col-span-2 justify-center items-center justify-self-center mb-8">
                     <div className="h-80 w-80 flex mx-auto">
-
-                        {/* <div className="rounded-full bg-gray-900 mt-7">
-
-
-
-                            <img className="object-cover h-16 w-full rounded-full" src={data.user_image ? data.user_image : '/user.png'} />
-
-
-                        </div> */}
-
                         <img className="object-cover rounded-full" width="300" height="300" src={data.user_image ? data.user_image : '/user.png'} />
                         <div className="cursor-pointer min-w-0 self-end">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" onClick={viewModal}>

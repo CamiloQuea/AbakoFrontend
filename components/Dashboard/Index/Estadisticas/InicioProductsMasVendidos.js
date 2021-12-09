@@ -10,8 +10,6 @@ export default function InicioProductsMasVendidos() {
 
 
 
-    let salida30d = [];
-
     function formatDate(date) {
         var d = new Date(date),
             month = '' + (d.getMonth() + 1),
@@ -39,25 +37,31 @@ export default function InicioProductsMasVendidos() {
     }
 
 
+    let salida = [];
+
+
+
+
 
     let dates = Last30Days();
-
-
 
     data.forEach(movimiento => {
 
         if (movimiento.type === false) {
 
+
+
+
+
             const date = formatDate(movimiento.createdAt);
 
-            dates.forEach((dia) => {
+
+
+            dates.forEach((dia, i) => {
+
                 if (date === dia) {
 
-
-
-
-                    salida30d.push(movimiento)
-
+                    salida.push(movimiento);
 
                 }
 
@@ -69,55 +73,127 @@ export default function InicioProductsMasVendidos() {
 
     });
 
-    let dataquantity = [];
-    let id = [];
+    let salidaProducts30days = [];
+
+    salida.forEach((movimiento) => {
+
+        let exists = false;
+
+        let i;
+
+
+        salidaProducts30days.map(({ product }, j) => {
 
 
 
-    salida30d.forEach(salida => {
+            if (product.id === movimiento.product.id) {
 
-        if (!id.includes(salida.product.id)) {
+                console.log('YEYY');
 
-            id.push(salida.id)
+                exists = true;
+                salidaProducts30days[j].quantity = salidaProducts30days[j].quantity + movimiento.quantity;
 
-            dataquantity.push(0)
+            } else {
 
-            salida30d.forEach(salidaBusqueda => {
+                console.log('NO EXISTE')
+            }
 
-                if (salidaBusqueda.product.id === salida.product.id) {
+        })
 
-                    dataquantity[id.indexOf(salidaBusqueda.product.id)] = dataquantity[id.indexOf(salidaBusqueda.product.id)] + salidaBusqueda.quantity;
+        if (!exists) {
 
-                }
+            console.log('YEP')
+
+            salidaProducts30days.push({
+
+                quantity: movimiento.quantity,
+                product: movimiento.product,
+                shop: movimiento.shop
 
             })
+        }
+
+
+    })
+
+
+
+    console.log({ salidaProducts30days })
+
+
+
+
+
+
+    return (<div className="flex flex-col justify-start flex-1 my-2 space-y-1 mx-2">
+        {
+
+
+            salidaProducts30days.map((out, i) =>
+                i < 5 ?
+                    (
+
+
+                        <div className="px-5 py-2 border dark:border-prueba rounded-xl overflow-visible text-center" key={out.product.id}>
+                            <p className="">
+                                <span className="text-4xl">
+
+                                    {out.quantity}
+
+                                </span>
+                                <span className="font-thin">
+                                    /vendidos
+                                </span>
+                            </p>
+
+                            <p className="text-xs" >
+
+                                <span className="">
+                                    Tienda:
+                                </span>
+
+                                <span className="">
+
+                                    {out.shop.name}
+
+                                </span>
+
+                            </p>
+
+                            <p className="truncate" >
+
+                                <span alt={out.product.type}>
+
+                                    {out.product.type}
+                                </span>
+                                |
+                                <span alt={out.product.brand}>
+
+                                    {out.product.brand}
+                                </span>
+                                |
+                                <span alt={out.product.model}>
+
+                                    {out.product.model}
+                                </span>
+
+                            </p>
+
+
+                        </div>
+
+
+                    ) : ''
+
+
+
+
+
+
+            )
+
 
         }
 
-    })
-
-    let datafinal;
-
-    dataquantity.forEach((valor, i) => {
-
-        
-
-    })
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-    return (<>
-
-    </>)
+    </div>)
 }

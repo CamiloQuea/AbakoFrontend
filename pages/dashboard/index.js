@@ -1,5 +1,6 @@
 
-import InicioEstadistica from '../../components/Dashboard/Index/Estadisticas/InicioEstadistica';
+import InicioEstadisticaEntrada from '../../components/Dashboard/Index/Estadisticas/InicioEstadisticaEntrada';
+import InicioEstadisticaSalida from '../../components/Dashboard/Index/Estadisticas/InicioEstadisticaSalida';
 import Sidebar from '../../components/Dashboard/sidebar';
 import useSWR from 'swr';
 import FetcherGet from '../../lib/FetcherGet';
@@ -37,7 +38,7 @@ export default function inicio() {
                     {/*
                 !------------------------- Tier 1 ---------------------------!
                     */}
-                    <div className='rounded-xl lg:col-span-3 shadow-md border max-h-96 dark:border-prueba'>
+                    <div className='flex flex-col rounded-xl lg:col-span-3 max-h-72 h-72  shadow-md border dark:border-prueba'>
 
 
 
@@ -48,16 +49,17 @@ export default function inicio() {
                                 </svg>
 
                             </div>
-                            <span className="uppercase font-sans font-bold">Estadistica</span>
+                            <span className="uppercase font-sans font-bold">Historial de salida demovimientos</span>
                         </div>
 
 
-                        <InicioEstadistica />
+                        <InicioEstadisticaSalida />
 
 
 
                     </div>
-                    <div className='rounded-xl lg:row-span-2 lg:col-span-2  shadow-md h-full border dark:border-prueba flex flex-col'>
+
+                    <div className='flex flex-col rounded-xl lg:col-span-3 max-h-72 h-72 shadow-md border dark:border-prueba bg-prueba'>
 
 
 
@@ -68,31 +70,51 @@ export default function inicio() {
                                 </svg>
 
                             </div>
-                            <span className="uppercase font-sans font-bold">Bajo stock</span>
+                            <span className="uppercase font-sans font-bold">Historial de entradas de movimientos</span>
+                        </div>
+
+
+                        <InicioEstadisticaEntrada />
+
+
+
+                    </div>
+
+                    <div className='rounded-xl lg:row-span-2 lg:col-span-1 lg:row-start-1 lg:col-start-4 shadow-md h-full border dark:border-prueba flex flex-col'>
+
+
+
+                        <div className="p-2 inline-flex w-full">
+                            <div className="w-14 h-14 bg-white relative -my-8 ml-5 mr-3 rounded-xl shadow-lg grid grid-cols-1 dark:bg-pruebaA3">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-500 justify-self-center self-center" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                                </svg>
+
+                            </div>
+                            <span className="uppercase font-sans font-bold">Producto con mayor salida stock</span>
+                        </div>
+
+
+                        <InicioProductsMasVendidos />
+
+                    </div>
+
+                    <div className='rounded-xl lg:row-span-2 lg:col-span-1 lg:row-start-1 lg:col-start-5  shadow-md h-full border dark:border-prueba flex flex-col'>
+
+
+
+                        <div className="p-2 inline-flex w-full">
+                            <div className="w-14 h-14 bg-white relative -my-8 ml-5 mr-3 rounded-xl shadow-lg grid grid-cols-1 dark:bg-pruebaA3 rotate-90">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-500 justify-self-center self-center" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                                </svg>
+
+                            </div>
+                            <span className="uppercase font-sans font-bold">Producto con menor stock</span>
                         </div>
 
 
                         <InicioProductsMenorStock />
-
-                    </div>
-                    <div className='rounded-xl lg:col-span-3 shadow-md h-full border dark:border-prueba'>
-
-
-
-                        <div className="p-2 inline-flex w-full">
-                            <div className="w-14 h-14 bg-white relative -my-8 ml-5 mr-3 rounded-xl shadow-lg grid grid-cols-1 dark:bg-pruebaA3">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-500 justify-self-center self-center" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
-                                </svg>
-
-                            </div>
-                            <span className="uppercase font-sans font-bold">Estadistica</span>
-                        </div>
-
-
-                        <InicioEstadistica />
-
-
 
                     </div>
 

@@ -2,12 +2,12 @@ import { Bar, Pie, Doughnut, Line } from "react-chartjs-2"
 import useSWR from "swr"
 import FetcherGet from "../../../../lib/FetcherGet"
 
-export default function InicioEstadistica() {
+export default function InicioEstadisticaEntrada() {
 
     const { data, error } = useSWR(`https://api.abako.xyz/api/user/movement`, url => FetcherGet(url))
     if (error) return 'error'
     if (!data) return 'loading'
-    
+
 
     function formatDate(date) {
         var d = new Date(date),
@@ -44,13 +44,13 @@ export default function InicioEstadistica() {
         salida.push(0);
 
     }
-    
+
 
 
     let dates = Last30Days();
 
     data.forEach(movimiento => {
-        
+
         if (movimiento.type === true) {
 
 
@@ -61,7 +61,7 @@ export default function InicioEstadistica() {
 
             dates.forEach((dia, i) => {
                 if (date === dia) {
-                    
+
 
 
 
@@ -81,7 +81,7 @@ export default function InicioEstadistica() {
             dates.forEach((dia, i) => {
 
                 if (date === dia) {
-                    
+
                     salida[i] = salida[i] + 1;
 
                 }
@@ -100,29 +100,19 @@ export default function InicioEstadistica() {
 
 
     return (<>
-        <div className="p-3 pt-0 text-white h-52">
+        <div className="flex-1 p-3 pt-0">
             <Line
                 data={{
                     labels: dates.reverse(),
                     datasets: [
                         {
-                            label: 'Cantidad de salidas',
+                            label: 'Cantidad de entrada',
                             data: entrada.reverse(),
                             backgroundColor: 'rgba(255, 205, 86,0.5)',
                             borderColor: 'rgba(255, 205, 86,0.5)',
-                            yAxisID: 'y',
+                            yAxisID: 'yAxes'
 
-
-
-                        },
-                        {
-                            label: 'Cantidad de entradas',
-                            data: salida.reverse(),
-                            backgroundColor: 'rgba(195, 106, 45, 0.6)',
-                            borderColor: 'rgba(195, 106, 45, 0.6)',
-                            yAxisID: 'y1',
-
-                        },
+                        }
 
                     ],
 
@@ -133,7 +123,7 @@ export default function InicioEstadistica() {
                     maintainAspectRatio: false,
 
                     responsive: true,
-                    
+
                     plugins: {
                         legend: {
                             labels: {
@@ -141,16 +131,22 @@ export default function InicioEstadistica() {
                                 font: {
                                     size: 14,
 
-                                },
-                                color: '#cccccccc'
-                            }, title: {
-
-                                color: '#cccccccc'
+                                }
                             }
                         },
 
-                    },
 
+
+                    },
+                    scales: {
+                        yAxes: {
+                            ticks: {
+                                beginAtZero: true,
+                                callback: function (value) { if (value % 1 === 0) { return value; } },
+                                precision: 0
+                            }
+                        }
+                    }
                 }
 
                 }
