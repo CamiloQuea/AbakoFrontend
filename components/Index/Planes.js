@@ -9,7 +9,7 @@ export const Planes = () => {
 
     return (
 
-        <section className="bg-primary h-full">
+        <section className="bg-primary h-full md:h-screen ">
             <div className=" flex flex-col container mx-auto h-full items-center justify-center" id="planes">
 
 
