@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from "react";
+import React,{ useState } from 'react';
 import router from 'next/router'
 import RegisterModal from './registerModal'
 
